@@ -1,0 +1,22 @@
+{% load static %}
+        <section class="breadcrumb-area bg-default" data-background="assets/images/breadcrumb/breadcrumb-bg.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content text-center">
+                            <h2 class="breadcrumb-title tp_has_text_reveal_anim">{{ page_name }}</h2>
+                            <div class="breadcrumb-list tp_fade_left">
+                                <a href="{% url "home" %}"><i class="fa-light fa-house"></i>Home</a>
+                                <span>{{ page_name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breadcrumb-shape">
+                <img src="{% static "assets/images/breadcrumb/shape-1.png" %}" alt="" class="breadcrumb-shape-1" data-speed="0.9">
+                <img src="{% static "assets/images/breadcrumb/shape-2.png" %}" alt="" class="breadcrumb-shape-2" data-speed="0.8">
+                <img src="{% static "assets/images/breadcrumb/shape-3.png" %}" alt="" class="breadcrumb-shape-3" data-speed="0.9">
+                <img src="{% static "assets/images/breadcrumb/circle.png" %}" alt="" class="breadcrumb-shape-4">
+            </div>
+        </section>
