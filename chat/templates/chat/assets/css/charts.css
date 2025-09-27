@@ -1,0 +1,57 @@
+/* Apex Chart custome css */
+.apexcharts-gridline{
+    stroke-dasharray: 4;
+}
+[data-bs-theme=dark] {
+    .apexcharts-title-text{
+        fill: var(--bs-white);
+        opacity: .75 !important;
+    }
+    .apexcharts-subtitle-text{
+        fill: var(--bs-white);
+        opacity: .55 !important;
+    }
+    .apexcharts-yaxis-title text,
+    .apexcharts-xaxis-title text{
+        fill: var(--bs-white);
+        opacity: .55;
+    }
+    .apexcharts-xaxis-texts-g text,
+    .apexcharts-yaxis-texts-g text{
+        fill: var(--bs-white);
+        opacity: .55;
+    }
+    .apexcharts-legend-text{
+        color: var(--bs-white) !important;
+        opacity: .6;
+    }
+
+    .apexcharts-xaxis-tick{
+        stroke: var(--bs-white);
+    }
+    .apexcharts-grid-borders line{
+        stroke: var(--bs-white);
+        opacity: .15;
+    }
+    .apexcharts-grid line{
+        opacity: .15;
+    }
+    .apexcharts-xaxistooltip,
+    .apexcharts-yaxistooltip{
+        color: var(--bs-white) !important;
+    }
+    .apexcharts-tooltip,
+    .apexcharts-xaxistooltip-text,
+    .apexcharts-yaxistooltip{
+        color: var(--bs-black);
+    }
+    .apexcharts-inner polygon{
+        opacity: .15;
+    }
+    .apexcharts-yaxis .apexcharts-text {
+        fill: var(--bs-white);
+    }
+    .apexcharts-slices path{
+        stroke: var(--bs-black);
+    }
+}

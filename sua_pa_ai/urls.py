@@ -16,3 +16,4 @@ if settings.DEBUG:
     urlpatterns += [path('bot/', include('bot.urls'))]
     urlpatterns += [path('aivi/', include('aivi.urls'))]
     urlpatterns += [path('companion/', include('companion.urls'))]
+    urlpatterns += [path('chat/', include('chat.urls'))]

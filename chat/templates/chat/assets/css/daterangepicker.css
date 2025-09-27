@@ -1,0 +1,58 @@
+/* date range picker custome css */
+.daterangepicker{
+    background: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+}
+.daterangepicker:after{
+    border-bottom: 6px solid var(--bs-body-bg);
+}
+.daterangepicker .calendar-table{
+    background: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+}
+.daterangepicker td.available:hover,
+.daterangepicker th.available:hover{
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+.daterangepicker td.in-range{
+    background: rgba(var(--bs-primary-rgb), .2);
+    color: var(--bs-primary);
+}
+.daterangepicker td.active,
+.daterangepicker td.active:hover{
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+.daterangepicker select.ampmselect,
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect{
+    background: var(--bs-border-color);
+    border-color: var(--bs-border-color);
+    border-radius: 4px;
+}
+.daterangepicker td.off,
+.daterangepicker td.off.end-date,
+.daterangepicker td.off.in-range,
+.daterangepicker td.off.start-date{
+    background-color: var(--bs-body-bg);
+}
+.daterangepicker .drp-buttons{
+    background: var(--bs-border-color);
+    border-color: var(--bs-border-color);
+}
+.daterangepicker .ranges li.active{
+    background-color: var(--bs-primary);
+}
+.daterangepicker .ranges li:hover{
+    background: rgba(var(--bs-primary-rgb), .2);
+    color: var(--bs-primary);
+}
+.daterangepicker.show-ranges.ltr .drp-calendar.left{
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme=dark] {
+    
+}

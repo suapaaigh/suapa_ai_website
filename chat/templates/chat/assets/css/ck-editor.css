@@ -1,0 +1,46 @@
+/* Ckeditor */
+#editor-container {
+    flex: 1;
+}
+
+.ck.ck-editor {
+    min-height: 200px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ck.ck-editor__main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ck.ck-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 0 0 .6rem .6rem !important; 
+}
+.ck.ck-content:focus{
+    border-color: var(--bs-primary) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.ck.ck-toolbar{
+    background: var(--bs-primary) !important;
+    border-radius: .6rem .6rem 0 0 !important;
+}
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content,
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+    border-color: var(--bs-border-color) !important;
+}
+.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset_all{
+    color: var(--bs-white) !important;
+}
+.ck.ck-editor__main>.ck-editor__editable{
+    background: transparent !important;
+}
+.ck.ck-sticky-panel__content{border: 0 !important;}

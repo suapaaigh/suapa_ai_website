@@ -1,0 +1,91 @@
+.timeline-item {
+  display: flex;
+  position: relative;
+  padding: 1em 1em 2em 1em;
+}
+.timeline-item::before{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: calc(100% - 2em);
+    top: 1rem;
+    left: -2px;
+    background-color: var(--bs-border-color);
+}
+
+@media only screen and (max-width: 599px) {
+  .timeline-item {
+    padding: 1em 0 1em 1em;
+  }
+}
+
+.timeline-item:hover::after {
+  height: calc(100% - 3em);
+}
+
+.timeline-item::after {
+  transition: all 0.3s ease;
+  background: var(--bs-border-color);
+  display: block;
+  position: absolute;
+  content: '';
+  width: 3px;
+  height: 26px;
+  top: 1rem;
+  left: -2px;
+}
+
+.timeline-item.border-primary::after {
+  background: var(--bs-primary);
+}
+
+.timeline-item.border-info::after {
+  background: var(--bs-info);
+}
+
+.timeline-item.border-success::after {
+  background: var(--bs-success);
+}
+
+.timeline-item.border-warning::after {
+  background: var(--bs-warning);
+}
+
+.timeline-item.border-danger::after {
+  background: var(--bs-danger);
+}
+
+.timeline-activity {
+  border-left: 3px solid var(--bs-secondary);
+  position: relative;
+  margin-left: 100px;
+}
+
+.timeline-activity .activity {
+  position: relative;
+}
+
+.timeline-activity .activity::before,
+.timeline-activity .activity::after {
+  position: absolute;
+  display: block;
+}
+
+.timeline-activity .activity::before {
+  content: attr(data-date);
+  text-align: right;
+  left: -120px;
+  font-size: 12px;
+  min-width: 100px;
+}
+
+.timeline-activity .activity::after {
+  content: "";
+  box-shadow: 0 0 0 3px var(--primary-color);
+  background: var(--bs-card-bg);
+  left: -6px;
+  border-radius: 10px;
+  height: 9px;
+  width: 9px;
+  top: 14px;
+}

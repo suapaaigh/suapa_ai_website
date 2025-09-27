@@ -1,0 +1,240 @@
+/* Animation CSS */
+.bullet-dot {
+    position: absolute;
+    animation: blink 1s linear infinite;
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    right: 4px;
+    top: 6px
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: .5
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.li_animate>li {
+    opacity: 0;
+    -webkit-animation: eliment-animation .3s ease-in-out .33333s;
+    animation: eliment-animation .3s ease-in-out .33333s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+}
+
+.li_animate>li:hover {
+    z-index: 9
+}
+
+.li_animate>li:nth-child(1) {
+    -webkit-animation-delay: .01s;
+    animation-delay: .01s
+}
+
+.li_animate>li:nth-child(2) {
+    -webkit-animation-delay: .04s;
+    animation-delay: .04s
+}
+
+.li_animate>li:nth-child(3) {
+    -webkit-animation-delay: .08s;
+    animation-delay: .08s
+}
+
+.li_animate>li:nth-child(4) {
+    -webkit-animation-delay: .12s;
+    animation-delay: .12s
+}
+
+.li_animate>li:nth-child(5) {
+    -webkit-animation-delay: .16s;
+    animation-delay: .16s
+}
+
+.li_animate>li:nth-child(6) {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s
+}
+
+.li_animate>li:nth-child(7) {
+    -webkit-animation-delay: .24s;
+    animation-delay: .24s
+}
+
+.li_animate>li:nth-child(8) {
+    -webkit-animation-delay: .28s;
+    animation-delay: .28s
+}
+
+.li_animate>li:nth-child(9) {
+    -webkit-animation-delay: .32s;
+    animation-delay: .32s
+}
+
+.li_animate>li:nth-child(10) {
+    -webkit-animation-delay: .36s;
+    animation-delay: .36s
+}
+
+.li_animate>li:nth-child(11) {
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s
+}
+
+.li_animate>li:nth-child(12) {
+    -webkit-animation-delay: .44s;
+    animation-delay: .44s
+}
+
+.li_animate>li:nth-child(13) {
+    -webkit-animation-delay: .48s;
+    animation-delay: .48s
+}
+
+.li_animate>li:nth-child(14) {
+    -webkit-animation-delay: .52s;
+    animation-delay: .52s
+}
+
+.li_animate>li:nth-child(15) {
+    -webkit-animation-delay: .56s;
+    animation-delay: .56s
+}
+
+.li_animate>li:nth-child(16) {
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s
+}
+
+.li_animate>li:nth-child(17) {
+    -webkit-animation-delay: .64s;
+    animation-delay: .64s
+}
+
+.li_animate>li:nth-child(18) {
+    -webkit-animation-delay: .68s;
+    animation-delay: .68s
+}
+
+.li_animate>li:nth-child(19) {
+    -webkit-animation-delay: .72s;
+    animation-delay: .72s
+}
+
+.li_animate>li:nth-child(20) {
+    -webkit-animation-delay: .76s;
+    animation-delay: .76s
+}
+
+@-webkit-keyframes eliment-animation {
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes eliment-animation {
+    to {
+        opacity: 1
+    }
+}
+
+/* Image Effect */
+.img-effect {
+    background: var(--bs-primary);
+    display: inline-block;
+    float: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-effect img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.6;
+}
+
+.img-effect>div {
+    padding: 2em;
+    color: var(--bs-white);
+    /* Replace $white */
+    font-size: 1rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Effect Version One --- */
+.img-effect.one>div::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(72, 76, 97, 0) 0%, rgba(72, 76, 97, 0.8) 75%);
+    content: '';
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+}
+
+.img-effect.one h2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transition: transform 0.35s, color 0.35s;
+    transform: translate3d(0, -50%, 0);
+}
+
+.img-effect.one>div::before,
+.img-effect.one p {
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.img-effect.one p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+    line-height: 20px;
+}
+
+.img-effect.one:hover h2 {
+    color: #fff;
+    /* Replace $white */
+    transform: translate3d(0, -50%, 0) translate3d(0, -40px, 0);
+}
+
+.img-effect.one:hover>div::before,
+.img-effect.one:hover p {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* SVG path animated on hover */
+.animated-icon path{
+    stroke-dasharray: 0; /* will be overridden by JS */
+    stroke-dashoffset: 0; /* visible by default */
+    transition: none;
+}
+/* Animate on hover ONLY */
+.animated-icon:hover path{
+    transition: stroke-dashoffset 1s ease;
+}

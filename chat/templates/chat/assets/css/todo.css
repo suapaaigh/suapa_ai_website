@@ -1,0 +1,12 @@
+.table>:not(caption)>*>* {
+    padding: 16px;
+}
+
+.table thead th:first-child {
+    padding-left: 0;
+}
+
+/* .table-hover>tbody>tr:hover>* {
+    border-bottom-color: var(--bs-primary);
+    background-color: var(--bs-table-hover-bg) !important;
+} */

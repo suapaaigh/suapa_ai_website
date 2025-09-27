@@ -15,28 +15,58 @@ def about_us(request):
 
 
 def blogs(request):
-    return render(request, 'blog.html')
+    page_name = "Our Blog"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'blog.html', context)
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    page_name = "Contact Us"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'contact.html', context)
 
 
 def downloads(request):
-    return render(request, 'shop.html')
+    page_name = "Downloads"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'shop.html', context)
 
 
 def faq(request):
-    return render(request, 'faq.html')
+    page_name = "FAQ"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'faq.html', context)
 
 
 def portfolio(request):
-    return render(request, 'work.html')
+    page_name = "Our Portfolio"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'work.html', context)
 
 
 
 def pricing(request):
-    return render(request, 'price.html')
+    page_name = "Our Pricing"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'price.html', context)
 
 
 def single_blog(request):
@@ -44,8 +74,18 @@ def single_blog(request):
 
 
 def services(request):
-    return render(request, 'service.html')
+    page_name = "Our Services"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'service.html', context)
 
 
 def team(request):
-    return render(request, 'team.html')
+    page_name = "Our Team"
+
+    context = {
+        'page_name':page_name
+    }
+    return render(request, 'team.html', context)

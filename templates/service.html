@@ -123,35 +123,7 @@
         <!-- work area end -->
 
         <!-- feature area start -->
-        <section class="inner_feature-area pt-110">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-xl-5 col-lg-5 col-md-6">
-                        <div class="inner_feature-content mb-40">
-                            <div class="inner_section-area mb-20">
-                                <span class="inner_section-subtitle tp_subtitle_anim">Features</span>
-                                <h2 class="inner_section-title tp_title_slideup mb-30">
-                                    Start Writing Faster with Sua Pa AI tool</h2>
-                                <p class="inner_section-text tp_fade_bottom">We've done it carefully and simply. Combined with the ingredients makes for beautiful landings.</p>
-                            </div>
-                            <ul class="inner_feature-content-list tp_fade_bottom">
-                                <li>Seamless Integration</li>
-                                <li>Smart Automation</li>
-                                <li>Top-notch Security</li>
-                            </ul>
-                            <a href="#" class="theme-btn-2 tp_fade_bottom">Explore More</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <div class="inner_feature-img-2 mb-40">
-                            <img src="assets/images/about/home2/bg.png" alt="Image Not Found" class="inner-img-1 tp_fade_left">
-                            <img src="assets/images/about/home2/bg-2.png" alt="Image Not Found" class="inner-img-2 tp_fade_bottom">
-                            <img src="assets/images/about/home2/shape.png" alt="Image Not Found" class="inner-img-shape">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        {% include "feature-section.html" %}
         <!-- feature area end -->
 
         <!-- brand area start -->
@@ -167,7 +139,7 @@
                 </div>
                 <div class="h2_brand-wrap">
                     <div class="h2_brand-item tp_has_fade_anim" data-fade-from="bottom">
-                        <img src="assets/images/brand/1.png" alt="Image Not Found">
+                        <img src="{% static "assets/images/brand/1.png" %}" alt="Image Not Found">
                     </div>
                     <div class="h2_brand-item tp_has_fade_anim" data-fade-from="bottom">
                         <img src="assets/images/brand/2.png" alt="Image Not Found">
@@ -186,212 +158,12 @@
         </section>
         <!-- brand area end -->
 
-        <!-- testimonial area start -->
-        <section class="h2_testimonial-area pb-95 pt-135">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="inner_section-area text-center">
-                            <span class="inner_section-subtitle tp_subtitle_anim">Testimonials</span>
-                            <h2 class="inner_section-title tp_title_slideup mb-0">Trusted by 1000+ companies</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="h2_testimonial-active swiper pb-40 pt-50 tp_fade_bottom">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="h2_testimonial-item">
-                                        <div class="h2_testimonial-icon">
-                                            <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.06">
-                                                <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                                <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <div class="h2_testimonial-head">
-                                            <div class="h2_testimonial-head-img">
-                                                <img src="assets/images/testimonial/1.png" alt="Image Not Found">
-                                            </div>
-                                            <div class="h2_testimonial-head-info">
-                                                <h6>Hanson Deck</h6>
-                                                <span>Blogger</span>
-                                            </div>
-                                        </div>
-                                        <ul class="h2_testimonial-rating">
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-thin fa-star"></i></li>
-                                        </ul>
-                                        <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="h2_testimonial-item">
-                                        <div class="h2_testimonial-icon">
-                                            <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.06">
-                                                <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                                <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <div class="h2_testimonial-head">
-                                            <div class="h2_testimonial-head-img">
-                                                <img src="assets/images/testimonial/2.png" alt="Image Not Found">
-                                            </div>
-                                            <div class="h2_testimonial-head-info">
-                                                <h6>Nigel Nigel</h6>
-                                                <span>President of Sales</span>
-                                            </div>
-                                        </div>
-                                        <ul class="h2_testimonial-rating">
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-thin fa-star"></i></li>
-                                        </ul>
-                                        <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="h2_testimonial-item">
-                                        <div class="h2_testimonial-icon">
-                                            <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.06">
-                                                <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                                <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <div class="h2_testimonial-head">
-                                            <div class="h2_testimonial-head-img">
-                                                <img src="assets/images/testimonial/3.png" alt="Image Not Found">
-                                            </div>
-                                            <div class="h2_testimonial-head-info">
-                                                <h6>Max Conversion</h6>
-                                                <span>SEO Contain Writer</span>
-                                            </div>
-                                        </div>
-                                        <ul class="h2_testimonial-rating">
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-thin fa-star"></i></li>
-                                        </ul>
-                                        <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="h2_testimonial-item">
-                                        <div class="h2_testimonial-icon">
-                                            <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g opacity="0.06">
-                                                <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                                <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                                </g>
-                                            </svg>
-                                        </div>
-                                        <div class="h2_testimonial-head">
-                                            <div class="h2_testimonial-head-img">
-                                                <img src="assets/images/testimonial/4.png" alt="Image Not Found">
-                                            </div>
-                                            <div class="h2_testimonial-head-info">
-                                                <h6>Nathaneal Down</h6>
-                                                <span>Blogger</span>
-                                            </div>
-                                        </div>
-                                        <ul class="h2_testimonial-rating">
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-solid fa-star"></i></li>
-                                            <li><i class="fa-thin fa-star"></i></li>
-                                        </ul>
-                                        <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="h2_testimonial-pagination pt-55 text-center"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+         <!-- testimonial area start -->
+       {% include "testimonial.html" %}
         <!-- testimonial area end -->
 
         <!-- blog area start -->
-        <section class="h2_blog-area pb-140">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="inner_section-area text-center mb-50">
-                            <span class="inner_section-subtitle tp_subtitle_anim">Our Blog</span>
-                            <h2 class="inner_section-title tp_title_slideup mb-0 inner_section-title tp_title_slideup-big">Our Latest News</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper h2_blog-active tp_fade_bottom">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="h2_blog-item">
-                                <div class="h2_blog-img mb-35 w_img tp_fade_left">
-                                    <a href="blog-details.html"><img src="assets/images/blog/home2/1.png" alt="Image Not Found"></a>
-                                </div>
-                                <div class="h2_blog-content">
-                                    <div class="h2_blog-content-meta">
-                                        <span><a href="#">Creative</a></span>
-                                        <span><i class="fa-light fa-calendar-days"></i>April 18, 2024</span>
-                                    </div>
-                                    <h4 class="h2_blog-content-title">
-                                        <a href="blog-details.html">How to choose the right line an app development?</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="h2_blog-item">
-                                <div class="h2_blog-img mb-35 w_img tp_fade_left">
-                                    <a href="blog-details.html"><img src="assets/images/blog/home2/2.png" alt="Image Not Found"></a>
-                                </div>
-                                <div class="h2_blog-content">
-                                    <div class="h2_blog-content-meta">
-                                        <span><a href="#">Ai</a></span>
-                                        <span><i class="fa-light fa-calendar-days"></i>June 18, 2024</span>
-                                    </div>
-                                    <h4 class="h2_blog-content-title">
-                                        <a href="blog-details.html">AI Content Creation Tools: 7 Tools to Supercharge Pro.</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="h2_blog-item">
-                                <div class="h2_blog-img mb-35 w_img tp_fade_left">
-                                    <a href="blog-details.html"><img src="assets/images/blog/home2/3.png" alt="Image Not Found"></a>
-                                </div>
-                                <div class="h2_blog-content">
-                                    <div class="h2_blog-content-meta">
-                                        <span><a href="#">Animation</a></span>
-                                        <span><i class="fa-light fa-calendar-days"></i>April 18, 2024</span>
-                                    </div>
-                                    <h4 class="h2_blog-content-title">
-                                        <a href="blog-details.html">Innovative Developments in AI Chatbot Technologies</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2_blog-pagination text-center pt-50"></div>
-                </div>
-            </div>
-        </section>
+        {% include "blog-section.html" %}
         <!-- blog area end -->
     </main>
 {% endblock content %}
