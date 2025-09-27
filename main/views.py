@@ -1,8 +1,16 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    hero = Hero.objects.first()
+    why = WhyChooseUs.objects.all()
+
+    context = {
+        'hero':hero,
+        'why':why,
+    }
+    return render(request, 'index.html', context)
 
 
 def about_us(request):
