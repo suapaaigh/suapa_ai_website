@@ -114,9 +114,6 @@
                                                 <li class="">
                                                     <a href="{% url "home" %}">Home</a>
                                                 </li>
-                                                <li class="">
-                                                    <a href="{% url "my-bot" %}">Home</a>
-                                                </li>
                                                 <li><a href="{% url "about-us" %}">About</a></li>
                                                 <li class="menu-has-child">
                                                     <a href="#">Pages</a>
@@ -141,6 +138,20 @@
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-6">
                                     <div class="header-action-wrap d-flex align-items-center justify-content-end">
+                                        {% if request.user.is_authenticated %}
+                                        <div class="header-action d-none d-sm-flex">
+                                            <a href="{% url "signout" %}" class="header-action-login">
+                                                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.01172 8C8.94472 8 10.5117 6.433 10.5117 4.5C10.5117 2.567 8.94472 1 7.01172 1C5.07872 1 3.51172 2.567 3.51172 4.5C3.51172 6.433 5.07872 8 7.01172 8Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M13.026 15C13.026 12.291 10.331 10.1 7.013 10.1C3.695 10.1 1 12.291 1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                Sign Out                                           
+                                            </a>
+                                            <a href="{% url "my-bot" %}" class="header-action-btn">
+                                                Chat                                        
+                                            </a>
+                                        </div>
+                                        {% else %}
                                         <div class="header-action d-none d-sm-flex">
                                             <a href="{% url "signin" %}" class="header-action-login">
                                                 <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,6 +164,7 @@
                                                 Join AI                                        
                                             </a>
                                         </div>
+                                        {% endif %}
                                         <div class="header-menu-bar d-lg-none ml-10">
                                             <span class="header-menu-bar-icon side-toggle">
                                                 <i class="fa-light fa-bars"></i>

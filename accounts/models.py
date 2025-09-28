@@ -189,7 +189,8 @@ class UserEducationProfile(models.Model):
         )
 
         if user_grade:
-            subjects = subjects.filter(grade_levels__contains=[user_grade])
+            # Use icontains for SQLite compatibility
+            subjects = subjects.filter(grade_levels__icontains=str(user_grade))
 
         return subjects.exclude(id__in=self.weak_subjects.values_list('id', flat=True))
 

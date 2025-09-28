@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Dashboard - Sua Pa AI{% endblock %}
+
+{% block content %}
+<main>
+    <!-- breadcrumb area start -->
+    {% include "breadcrumb.html" %}
+    <!-- breadcrumb area end -->
+
+    <!-- dashboard area start -->
+    <section class="dashboard-area pt-140 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="dashboard-content">
+                        <div class="welcome-section mb-50">
+                            <h2>Welcome back, {{ user.first_name }}!</h2>
+                            <p>Continue your learning journey with Sua Pa AI</p>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="row mb-50">
+                            <div class="col-lg-3 col-md-6 mb-30">
+                                <div class="dashboard-card">
+                                    <div class="dashboard-card-icon">
+                                        <i class="fa-light fa-robot"></i>
+                                    </div>
+                                    <h4>AI Tutor</h4>
+                                    <p>Get personalized help from AI tutors</p>
+                                    <a href="{% url 'chat:index' %}" class="btn btn-primary">Start Learning</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-30">
+                                <div class="dashboard-card">
+                                    <div class="dashboard-card-icon">
+                                        <i class="fa-light fa-user-friends"></i>
+                                    </div>
+                                    <h4>Study Companion</h4>
+                                    <p>Your AI learning companion</p>
+                                    <a href="{% url 'companion:dashboard' %}" class="btn btn-primary">Open Companion</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-30">
+                                <div class="dashboard-card">
+                                    <div class="dashboard-card-icon">
+                                        <i class="fa-light fa-code"></i>
+                                    </div>
+                                    <h4>Code Assistant</h4>
+                                    <p>AI-powered programming help</p>
+                                    <a href="{% url 'copilot:dashboard' %}" class="btn btn-primary">Start Coding</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-30">
+                                <div class="dashboard-card">
+                                    <div class="dashboard-card-icon">
+                                        <i class="fa-light fa-chart-line"></i>
+                                    </div>
+                                    <h4>Progress</h4>
+                                    <p>Track your learning progress</p>
+                                    <a href="{% url 'profile-settings' %}" class="btn btn-primary">View Progress</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="recent-activity">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fa-light fa-clock"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h5>Welcome to Sua Pa AI!</h5>
+                                        <p>Start exploring our AI-powered learning tools.</p>
+                                        <span class="activity-time">Just now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- dashboard area end -->
+</main>
+
+<style>
+.dashboard-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card-icon {
+    font-size: 48px;
+    color: #6366f1;
+    margin-bottom: 20px;
+}
+
+.dashboard-card h4 {
+    margin-bottom: 15px;
+    color: #1f2937;
+}
+
+.dashboard-card p {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.activity-icon {
+    font-size: 20px;
+    color: #6366f1;
+    margin-right: 15px;
+}
+
+.activity-content h5 {
+    margin-bottom: 5px;
+    color: #1f2937;
+}
+
+.activity-content p {
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: #9ca3af;
+}
+</style>
+{% endblock %}

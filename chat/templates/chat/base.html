@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        {% block title %}Sua Pa AI Bot{% endblock title %}
+        {% block title %}Sua Pa AI{% endblock title %}
     </title>
     <meta name="description" content="Thunder AI is a responsive Bootstrap admin dashboard template with AI tools, dark mode, prebuilt themes, and powerful UI kit for modern web apps.">
     <meta name="keywords" content="Thunder AI dashboard, AI admin template, Bootstrap admin template, responsive admin dashboard, HTML admin UI kit, dark mode dashboard, AI tools dashboard, admin dashboard with themes, modern admin panel, Bootstrap 5 admin UI, CSS variables dashboard, light dark admin template">
@@ -196,7 +196,7 @@
                                         <div class="card-body">
                                             <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
                                             <p>{{ user.email }}</p>
-                                            <a href="auth-signin.html" class="btn btn-primary text-uppercase w-100 rounded-pill">Sign out</a>
+                                            <a href="{% url "signout" %}" class="btn btn-primary text-uppercase w-100 rounded-pill">Sign out</a>
                                         </div>
                                         <div class="list-group m-2">
                                             <a class="list-group-item rounded-pill list-group-item-action border-0" aria-label="Thunder Ai account Settings" href="{% url "profile-settings" %}">Settings</a>
@@ -308,12 +308,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{% url "my-pilot" %}">
+                                    <a class="nav-link active" href="">
                                         Sua Pa AI Co:Pilot
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url "my-companion" %}">
+                                    <a class="nav-link" href="">
                                         Sua Pa AI Companion
                                     </a>
                                 </li>
