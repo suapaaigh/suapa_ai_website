@@ -11,7 +11,7 @@ urlpatterns = [
     path('faq/', faq, name='faq'),
     path('portfolio/', portfolio, name='portfolio'),
     path('pricing/', pricing, name='pricing'),
-    path('single-blog/', single_blog, name='single-blog'),
+    path('single-blog/<str:slug>', single_blog, name='single-blog'),
     path('services/', services, name='services'),
     path('team/', team, name='team'),
 ]

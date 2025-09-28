@@ -211,8 +211,6 @@ class WhyChooseUs(models.Model):
 class Feature(models.Model):
     caption = models.CharField(max_length=100)
     description = models.TextField()
-    icon = models.CharField(max_length=100, blank=True, help_text="CSS class or icon name")
-    image = models.ImageField(upload_to='feature_images/', null=True, blank=True)
     is_active = models.BooleanField(default=True)
     order = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now)
@@ -315,3 +313,39 @@ class FeaturedImage(models.Model):
         ordering = ['usage', 'order', '-created_at']
         verbose_name = "Featured Image"
         verbose_name_plural = "Featured Images"
+
+class Product(models.Model):
+    name = models.CharField(max_length=100, help_text="Product name (e.g., Sua Pa LMS, Sua Pa AIVI)")
+    description = models.TextField(blank=True)
+    short_description = models.CharField(max_length=200, blank=True)
+    features = models.JSONField(default=list, blank=True, help_text="List of product features")
+    monthly_price = models.DecimalField(max_digits=10, decimal_places=2)
+    yearly_price = models.DecimalField(max_digits=10, decimal_places=2)
+    currency = models.CharField(max_length=3, default='USD')
+    is_featured = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    icon = models.CharField(max_length=50, blank=True, help_text="Font awesome icon class")
+    image = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    demo_url = models.URLField(blank=True, help_text="Link to product demo")
+    order = models.IntegerField(default=0)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_yearly_savings(self):
+        monthly_total = self.monthly_price * 12
+        return monthly_total - self.yearly_price
+
+    def get_yearly_discount_percent(self):
+        monthly_total = self.monthly_price * 12
+        if monthly_total > 0:
+            return round(((monthly_total - self.yearly_price) / monthly_total) * 100)
+        return 0
+
+    def get_monthly_total_yearly(self):
+        return self.monthly_price * 12
+
+    class Meta:
+        ordering = ['order', 'name']

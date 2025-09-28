@@ -1,0 +1,139 @@
+{% load static %}
+<div class="row">
+    <div class="col-12">
+        <div class="price-switch-wrapper">
+            <label class="toggler toggler--is-active" id="filt-monthly">Pay Monthly</label>
+            <div class="toggle">
+            <input type="checkbox" id="switcher" class="tp-check">
+            <b class="switch"></b>
+            </div>
+            <label class="toggler yearly-pack" id="filt-yearly">Pay Yearly
+                {% if products %}
+                    {% for product in products|slice:":1" %}
+                        {% if product.get_yearly_discount_percent > 0 %}
+                            <span class="amount-offer">Save {{ product.get_yearly_discount_percent }}%</span>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <span class="amount-offer">Save 34%</span>
+                {% endif %}
+            </label>
+        </div>
+    </div>
+</div>
+<div id="monthly" class="wrapper-full">
+    <div class="row align-items-end">
+        {% if products %}
+            {% for product in products %}
+                <div class="col-xl-3 col-lg-6 col-md-6 tp_fade_left" data-fade-from="left" {% if forloop.counter > 1 %}data-delay="{{ forloop.counter0|floatformat:1 }}"{% endif %}>
+                    <div class="price-item {% if product.is_featured %}active{% endif %}">
+                        {% if product.is_featured %}
+                            <div class="price-item-option">
+                                <span>Best Choice</span>
+                            </div>
+                        {% endif %}
+                        <div class="price-item-head">
+                            <h5 class="price-item-title">{{ product.name }}</h5>
+                            <h2 class="price-item-amount-title">${{ product.monthly_price }}</h2>
+                            <p>/Month</p>
+                            {% if product.demo_url %}
+                                <a class="price-item-btn" href="{{ product.demo_url }}" target="_blank">Try Demo<i class="fa-light fa-angle-right"></i></a>
+                            {% else %}
+                                <a class="price-item-btn" href="#">Choose Plan<i class="fa-light fa-angle-right"></i></a>
+                            {% endif %}
+                        </div>
+                        {% if product.features %}
+                            <ul class="price-item-list">
+                                {% for feature in product.features %}
+                                    <li>{{ feature }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Fallback content if no products -->
+            <div class="col-xl-3 col-lg-6 col-md-6 tp_fade_left" data-fade-from="left">
+                <div class="price-item price-item-1">
+                    <div class="price-item-head">
+                        <h5 class="price-item-title">Free Trial</h5>
+                        <h2 class="price-item-amount-title">Free</h2>
+                        <p>No Need For Credit Card</p>
+                        <a class="price-item-btn" href="#">Choose Plan<i class="fa-light fa-angle-right"></i></a>
+                    </div>
+                    <ul class="price-item-list">
+                        <li>Priority email & chat support</li>
+                        <li>Access 12+ use-cases</li>
+                        <li>Generate 1,000 AI Words / month</li>
+                        <li>Google Docs style editor</li>
+                        <li>Compose & command features</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div id="hourly" class="wrapper-full hide">
+    <div class="row align-items-end">
+        {% if products %}
+            {% for product in products %}
+                <div class="col-xl-3 col-lg-6 col-md-6 tp_fade_left" data-fade-from="left" {% if forloop.counter > 1 %}data-delay="{{ forloop.counter0|floatformat:1 }}"{% endif %}>
+                    <div class="price-item {% if product.is_featured %}active{% endif %}">
+                        {% if product.is_featured %}
+                            <div class="price-item-option">
+                                <span>Best Choice</span>
+                            </div>
+                        {% endif %}
+                        <div class="price-item-head">
+                            <h5 class="price-item-title">{{ product.name }}</h5>
+                            {% if product.get_yearly_discount_percent > 0 %}
+                                <div class="price-item-amount">
+                                    <del>${{ product.get_monthly_total_yearly }}</del>
+                                    <h2 class="price-item-amount-title">${{ product.yearly_price }}</h2>
+                                    <span class="amount-offer">{{ product.get_yearly_discount_percent }}%</span>
+                                </div>
+                                <p>/Year (annually billed)</p>
+                                <span class="price-item-offer">SAVE UP TO ${{ product.get_yearly_savings }}</span>
+                            {% else %}
+                                <h2 class="price-item-amount-title">${{ product.yearly_price }}</h2>
+                                <p>/Year</p>
+                            {% endif %}
+                            {% if product.demo_url %}
+                                <a class="price-item-btn" href="{{ product.demo_url }}" target="_blank">Try Demo<i class="fa-light fa-angle-right"></i></a>
+                            {% else %}
+                                <a class="price-item-btn" href="#">Choose Plan<i class="fa-light fa-angle-right"></i></a>
+                            {% endif %}
+                        </div>
+                        {% if product.features %}
+                            <ul class="price-item-list">
+                                {% for feature in product.features %}
+                                    <li>{{ feature }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Fallback content if no products -->
+            <div class="col-xl-3 col-lg-6 col-md-6 tp_fade_left" data-fade-from="left">
+                <div class="price-item price-item-1">
+                    <div class="price-item-head">
+                        <h5 class="price-item-title">Free Trial</h5>
+                        <h2 class="price-item-amount-title">Free</h2>
+                        <p>No Need For Credit Card</p>
+                        <a class="price-item-btn" href="#">Choose Plan<i class="fa-light fa-angle-right"></i></a>
+                    </div>
+                    <ul class="price-item-list">
+                        <li>Priority email & chat support</li>
+                        <li>Access 12+ use-cases</li>
+                        <li>Generate 1,000 AI Words / month</li>
+                        <li>Google Docs style editor</li>
+                        <li>Compose & command features</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

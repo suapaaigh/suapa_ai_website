@@ -13,9 +13,11 @@
             <div class="col-12">
                 <div class="h2_testimonial-active swiper pb-40 pt-50 tp_fade_bottom">
                     <div class="swiper-wrapper">
+                        {% for testimonial in testimonials %}
+                        {% if testimonial.is_featured == True %}
                         <div class="swiper-slide">
-                            <div class="h2_testimonial-item">
-                                <div class="h2_testimonial-icon">
+                            <div class="testimonial-item">
+                                <div class="testimonial-icon">
                                     <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g opacity="0.06">
                                         <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
@@ -23,112 +25,42 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <div class="h2_testimonial-head">
-                                    <div class="h2_testimonial-head-img">
-                                        <img src="{% static "assets/images/testimonial/1.png" %}" alt="Image Not Found">
+                                <div class="testimonial-head">
+                                    <div class="testimonial-head-img">
+                                        <img src="{{ testimonial.profile_image.url }}" alt="Image Not Found">
                                     </div>
-                                    <div class="h2_testimonial-head-info">
-                                        <h6>Hanson Deck</h6>
-                                        <span>Blogger</span>
+                                    <div class="testimonial-head-info">
+                                        <h6>{{ testimonial.name }}</h6>
+                                        <span>{{ testimonial.position }}, {{ testimonial.company }}</span>
                                     </div>
                                 </div>
-                                <ul class="h2_testimonial-rating">
+                                <ul class="testimonial-rating">
+                                    {% if testimonial.rating == 5 %}
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    {% endif %}
+                                    {% if testimonial.rating == 4 %}
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-thin fa-star"></i></li>
-                                </ul>
-                                <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="h2_testimonial-item">
-                                <div class="h2_testimonial-icon">
-                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g opacity="0.06">
-                                        <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                        <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="h2_testimonial-head">
-                                    <div class="h2_testimonial-head-img">
-                                        <img src="{% static "assets/images/testimonial/2.png" %}" alt="Image Not Found">
-                                    </div>
-                                    <div class="h2_testimonial-head-info">
-                                        <h6>Nigel Nigel</h6>
-                                        <span>President of Sales</span>
-                                    </div>
-                                </div>
-                                <ul class="h2_testimonial-rating">
-                                    <li><i class="fa-solid fa-star"></i></li>
+                                    {% endif %}
+                                    {% if testimonial.rating == 3 %}
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-thin fa-star"></i></li>
+                                    {% endif %}
                                 </ul>
-                                <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
+                                <p>{{ testimonial.testimony }}</p>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="h2_testimonial-item">
-                                <div class="h2_testimonial-icon">
-                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g opacity="0.06">
-                                        <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                        <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="h2_testimonial-head">
-                                    <div class="h2_testimonial-head-img">
-                                        <img src="{% static "assets/images/testimonial/3.png" %}" alt="Image Not Found">
-                                    </div>
-                                    <div class="h2_testimonial-head-info">
-                                        <h6>Max Conversion</h6>
-                                        <span>SEO Contain Writer</span>
-                                    </div>
-                                </div>
-                                <ul class="h2_testimonial-rating">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-thin fa-star"></i></li>
-                                </ul>
-                                <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="h2_testimonial-item">
-                                <div class="h2_testimonial-icon">
-                                    <svg width="48" height="36" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g opacity="0.06">
-                                        <path d="M28.6981 18.7847L46.3344 34.5144C46.9789 35.0893 48 34.6318 48 33.7682V1C48 0.447715 47.5523 0 47 0H29.3637C28.8114 0 28.3637 0.447714 28.3637 0.999998V18.0384C28.3637 18.3235 28.4854 18.595 28.6981 18.7847Z" fill="currentColor"/>
-                                        <path d="M0.336773 18.7847L17.9731 34.5144C18.6176 35.0893 19.6387 34.6318 19.6387 33.7682V1C19.6387 0.447715 19.191 0 18.6387 0H1.00239C0.450104 0 0.00238991 0.447714 0.00238991 0.999998V18.0384C0.00238991 18.3235 0.124039 18.595 0.336773 18.7847Z" fill="currentColor"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="h2_testimonial-head">
-                                    <div class="h2_testimonial-head-img">
-                                        <img src="{% static "assets/images/testimonial/4.png" %}" alt="Image Not Found">
-                                    </div>
-                                    <div class="h2_testimonial-head-info">
-                                        <h6>Nathaneal Down</h6>
-                                        <span>Blogger</span>
-                                    </div>
-                                </div>
-                                <ul class="h2_testimonial-rating">
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-thin fa-star"></i></li>
-                                </ul>
-                                <p>Maecenas eget ullamcorper dolor placerat ipsum. Aliquam dictum massa eu libero vehicula, id dapibus ligula vulputate. Donec arcu elit</p>
-                            </div>
-                        </div>
+                        {% endif %}
+                    {% endfor %}
                     </div>
                     <div class="h2_testimonial-pagination pt-55 text-center"></div>
                 </div>

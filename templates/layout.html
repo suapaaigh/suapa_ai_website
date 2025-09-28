@@ -99,27 +99,12 @@
                             <div class="row align-items-center">
                                 <div class="col-xl-6 col-lg-7">
                                     <div class="h5_header-top-text">
-                                        <p>Create an account to avail a 34% bonus discount at checkout.</p>
-                                        <a href="#">Learn More<i class="fa-light fa-angle-right"></i></a>
+                                        <p>Building Responsible AI for Inclusive Education</p>
+                                        <a href="{% url "about-us" %}">Learn More<i class="fa-light fa-angle-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-5 d-none d-lg-block">
                                     <div class="h5_header-top-right">
-                                        <div class="h5_header-top-language">
-                                            <select name="select" class="h5_header-top-language-option has-nice-select">
-                                                <option value="1">English</option>
-                                                <option value="2">Bangla</option>
-                                                <option value="3">Arabic</option>
-                                                <option value="4">Urdu</option>
-                                            </select>
-                                        </div>
-                                        <div class="h5_header-top-currency">
-                                            <select name="select" class="h5_header-top-currency-option has-nice-select">
-                                                <option value="1">$USD</option>
-                                                <option value="2">৳Taka</option>
-                                                <option value="3">€Euro</option>
-                                            </select>
-                                        </div>
                                         <div class="h5_header-top-account">
                                             {% if user.is_authenticated %}
                                                 <div class="dropdown">
@@ -193,10 +178,6 @@
                                 <div class="col-xl-3 col-lg-4 col-8">
                                     <div class="h5_header-action-wrap d-flex align-items-center justify-content-end">
                                         <div class="h5_header-action d-none d-sm-flex">
-                                            <div class="h5_header-action-inner">
-                                                <a class="h5_header-action-search" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fa-light fa-search"></i></a>
-                                                <a href="cart.html" class="h5_header-action-cart"><i class="fa-light fa-shopping-bag"></i><span>12</span></a>
-                                            </div>
                                             <a href="{% url "my-bot" %}" class="h5_header-action-btn">
                                                 Get Started<i class="fa-light fa-angle-right"></i>                                
                                             </a>

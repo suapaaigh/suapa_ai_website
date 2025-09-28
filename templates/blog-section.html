@@ -11,54 +11,28 @@
         </div>
         <div class="swiper h2_blog-active tp_fade_bottom">
             <div class="swiper-wrapper">
+                {% for blog in blogs %}
                 <div class="swiper-slide">
                     <div class="h2_blog-item">
                         <div class="h2_blog-img mb-35 w_img">
-                            <a href="blog-details.html"><img src="{% static "assets/images/blog/home2/1.png" %}" alt="Image Not Found"></a>
+                            {% if blog.featured_image %}
+                            <a href="{% url "single-blog" blog.slug %}"><img src="{{ blog.featured_image.url }}" alt="Image Not Found"></a>
+                            {% else %}
+                            <a href="{% url "single-blog" blog.slug %}"><img src="{% static "assets/images/blog/home2/1.png" %}" alt="Image Not Found"></a>
+                            {% endif %}  
                         </div>
                         <div class="h2_blog-content">
                             <div class="h2_blog-content-meta">
-                                <span><a href="#">Creative</a></span>
-                                <span><i class="fa-light fa-calendar-days"></i>April 18, 2024</span>
+                                <span><a href="#">{{ blog.category.title }}</a></span>
+                                <span><i class="fa-light fa-calendar-days"></i>{{ blog.published_at }}</span>
                             </div>
                             <h4 class="h2_blog-content-title">
-                                <a href="blog-details.html">How to choose the right line an app development?</a>
+                                <a href="{% url "single-blog" blog.slug %}">{{ blog.title }}</a>
                             </h4>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="h2_blog-item">
-                        <div class="h2_blog-img mb-35 w_img">
-                            <a href="blog-details.html"><img src="{% static "assets/images/blog/home2/2.png" %}" alt="Image Not Found"></a>
-                        </div>
-                        <div class="h2_blog-content">
-                            <div class="h2_blog-content-meta">
-                                <span><a href="#">Ai</a></span>
-                                <span><i class="fa-light fa-calendar-days"></i>June 18, 2024</span>
-                            </div>
-                            <h4 class="h2_blog-content-title">
-                                <a href="blog-details.html">AI Content Creation Tools: 7 Tools to Supercharge Pro.</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="h2_blog-item">
-                        <div class="h2_blog-img mb-35 w_img">
-                            <a href="blog-details.html"><img src="{% static "assets/images/blog/home2/3.png" %}" alt="Image Not Found"></a>
-                        </div>
-                        <div class="h2_blog-content">
-                            <div class="h2_blog-content-meta">
-                                <span><a href="#">Animation</a></span>
-                                <span><i class="fa-light fa-calendar-days"></i>April 18, 2024</span>
-                            </div>
-                            <h4 class="h2_blog-content-title">
-                                <a href="blog-details.html">Innovative Developments in AI Chatbot Technologies</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="h2_blog-pagination text-center pt-50"></div>
         </div>

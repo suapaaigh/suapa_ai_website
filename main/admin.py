@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Category, Tag, BlogPost, Service, TeamMember, Portfolio, FAQ, ContactMessage,
-    Hero, WhyChooseUs, Feature, Partner, Testimonial, AboutUs, FeaturedImage
+    Hero, WhyChooseUs, Feature, Partner, Testimonial, AboutUs, FeaturedImage, Product
 )
 
 @admin.register(Category)
@@ -23,7 +23,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'category', 'status', 'is_featured', 'views', 'created_at', 'published_at']
     list_filter = ['status', 'is_featured', 'category', 'created_at', 'published_at']
     search_fields = ['title', 'content', 'author__username']
-    readonly_fields = ['slug', 'views', 'created_at', 'updated_at', 'published_at']
+    readonly_fields = ['views', 'created_at', 'updated_at', 'published_at']
     prepopulated_fields = {'slug': ('title',)}
     filter_horizontal = ['tags']
     date_hierarchy = 'published_at'
@@ -131,7 +131,7 @@ class WhyChooseUsAdmin(admin.ModelAdmin):
 
 @admin.register(Feature)
 class FeatureAdmin(admin.ModelAdmin):
-    list_display = ['caption', 'icon', 'is_active', 'order', 'created_at']
+    list_display = ['caption', 'is_active', 'order', 'created_at']
     list_filter = ['is_active', 'created_at']
     search_fields = ['caption', 'description']
     readonly_fields = ['created_at', 'updated_at']
@@ -209,6 +209,32 @@ class FeaturedImageAdmin(admin.ModelAdmin):
         }),
         ('Usage & Settings', {
             'fields': ('usage', 'link_url', 'is_active', 'order')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        })
+    )
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name', 'monthly_price', 'yearly_price', 'currency', 'is_featured', 'is_active', 'order']
+    list_filter = ['is_featured', 'is_active', 'currency', 'created_at']
+    search_fields = ['name', 'description', 'short_description']
+    readonly_fields = ['created_at', 'updated_at']
+    ordering = ['order', 'name']
+    fieldsets = (
+        ('Product Information', {
+            'fields': ('name', 'short_description', 'description', 'features')
+        }),
+        ('Pricing', {
+            'fields': ('monthly_price', 'yearly_price', 'currency')
+        }),
+        ('Media & Links', {
+            'fields': ('icon', 'image', 'demo_url')
+        }),
+        ('Settings', {
+            'fields': ('is_featured', 'is_active', 'order')
         }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),
