@@ -1,0 +1,179 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="content-area">
+        <div class="container-fluid p-md-0">
+            
+            <div class="inner-layout d-flex">
+                <div class="left-bar p-4 overflow-y-auto">
+                    <p class="mb-1 fs-12 text-uppercase">Content Creation</p>
+                    <ul class="list-group gap-1 li_animate list-unstyled">
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0 active">
+                                <h6 class="mb-0 text-truncate fs-14">Article Generator</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Blog Post Generator</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Article Rewriter</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Content Summarizer</h6>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <p class="mb-1 fs-12 text-uppercase">Marketing & Business</p>
+                    <ul class="list-group gap-1 li_animate list-unstyled">
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Ads Content</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Email Marketing</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Product Description</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
+                                <h6 class="mb-0 text-truncate fs-14">Social Media Posts</h6>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body-area d-flex align-items-start flex-column p-md-4 p-2 overflow-y-auto">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
+                            <path d="M8 8l4 0" />
+                            <path d="M8 12l4 0" />
+                            <path d="M8 16l4 0" />
+                        </svg>
+                        <div>
+                            <h3 class="mb-1">Article Generator</h4>
+                            <p class="mb-0 small">Create compelling advertising copy for various platforms</p>
+                        </div>
+                    </div>
+                    <form class="row g-4">
+                        <div class="col-12 control-group">
+                            <label class="form-label">Topic</label>
+                            <textarea name="topic" class="form-control textarea-resize-vertical" rows="3" placeholder="Enter your article topic or provide a brief description..."></textarea>
+                            <div class="fs-12">Provide a clear topic or description for your article</div>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Keywords <span class="text-muted">(Comma Separated)</span></label>
+                            <input type="text" class="form-control" placeholder="e.g. React, Redux, Vite">
+                            <div class="fs-12">Add relevant keywords to optimize your content</div>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Language</label>
+                            <select class="form-select">
+                                <option value="arabic">Arabic</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="english" selected="">English</option>
+                                <option value="french">French</option>
+                                <option value="german">German</option>
+                                <option value="italian">Italian</option>
+                                <option value="japanese">Japanese</option>
+                                <option value="portuguese">Portuguese</option>
+                                <option value="russian">Russian</option>
+                                <option value="spanish">Spanish</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Writing Style</label>
+                            <select class="form-select">
+                                <option value="conversational">Conversational</option>
+                                <option value="professional">Professional</option>
+                                <option value="casual">Casual</option>
+                                <option value="technical">Technical</option>
+                                <option value="creative">Creative</option>
+                                <option value="academic">Academic</option>
+                                <option value="formal">Formal</option>
+                                <option value="humorous">Humorous</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Article Length</label>
+                            <select class="form-select">
+                                <option value="short">Short (300-500 words)</option>
+                                <option value="medium">Medium (500-1000 words)</option>
+                                <option value="long">Long (1000-2000 words)</option>
+                                <option value="very-long">Very Long (2000+ words)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Target Audience</label>
+                            <select class="form-select">
+                                <option value="general">General Public</option>
+                                <option value="professionals">Professionals</option>
+                                <option value="students">Students</option>
+                                <option value="beginners">Beginners</option>
+                                <option value="experts">Experts</option>
+                                <option value="business">Business Owners</option>
+                                <option value="developers">Developers</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 control-group">
+                            <label class="form-label">Variants <span class="text-muted">Max 3 for demo</span></label>
+                            <select class="form-select" id="variants">
+                                <option value="1">1 Variant</option>
+                                <option value="2" selected="">2 Variants</option>
+                                <option value="3">3 Variants</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <p class="form-label">Additional Options</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="includeIntro" checked="">
+                                <label class="form-check-label" for="includeIntro">
+                                    Include Introduction
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="includeConclusion" checked="">
+                                <label class="form-check-label" for="includeConclusion">
+                                    Include Conclusion
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="includeBulletPoints">
+                                <label class="form-check-label" for="includeBulletPoints">
+                                    Include Bullet Points
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="align-items-lg-center align-items-start d-flex flex-column flex-lg-row justify-content-between gap-3">
+                                <div class="text-muted">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 9h.01" />
+                                        <path d="M11 12h1v4h1" />
+                                        <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
+                                    </svg>
+                                    <small>Estimated generation time: 10-30 seconds</small>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Generate Article</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}

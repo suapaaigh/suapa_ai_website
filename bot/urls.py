@@ -1,6 +1,6 @@
 from django.urls import path
-
+from .views import *
 
 urlpatterns = [
-    # path('', views.home, name='home'),
+    path('my-bot', my_bot, name='my-bot'),
 ]

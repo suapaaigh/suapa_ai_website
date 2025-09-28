@@ -1,0 +1,580 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}Profile Settings - Sua Pa AI{% endblock %}
+
+{% block content %}
+<main>
+    <!-- breadcrumb area start -->
+    {% include "breadcrumb.html" %}
+    <!-- breadcrumb area end -->
+
+    <!-- profile settings area start -->
+    <section class="profile-settings-area pt-140 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 mx-auto">
+                    <div class="profile-settings-content">
+                        <div class="text-center mb-40">
+                            <span class="profile-subtitle">Personalize Your Learning</span>
+                            <h2 class="profile-title">Complete Your Profile Setup</h2>
+                            <p>Help us customize your learning experience based on your preferences and goals.</p>
+                        </div>
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form method="POST" class="profile-form">
+                            {% csrf_token %}
+
+                            <!-- Educational Information -->
+                            <div class="profile-section">
+                                <h3 class="section-title">Educational Information</h3>
+                                <p class="section-description">Tell us about your educational background to get personalized content.</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="education_level">Education Level <span class="text-danger">*</span></label>
+                                            <select name="education_level" id="education_level" class="form-control" required>
+                                                <option value="">Select Education Level</option>
+                                                <option value="nursery" {% if user_profile.education_level == 'nursery' %}selected{% endif %}>Nursery</option>
+                                                <option value="primary" {% if user_profile.education_level == 'primary' %}selected{% endif %}>Primary</option>
+                                                <option value="jhs" {% if user_profile.education_level == 'jhs' %}selected{% endif %}>Junior High School</option>
+                                                <option value="shs" {% if user_profile.education_level == 'shs' %}selected{% endif %}>Senior High School</option>
+                                                <option value="tertiary" {% if user_profile.education_level == 'tertiary' %}selected{% endif %}>Tertiary</option>
+                                                <option value="adult" {% if user_profile.education_level == 'adult' %}selected{% endif %}>Adult Education</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="grade_level">Grade Level (if applicable)</label>
+                                            <select name="grade_level" id="grade_level" class="form-control">
+                                                <option value="">Select Grade</option>
+                                                <option value="1" {% if user_profile.grade_level == 1 %}selected{% endif %}>Grade 1</option>
+                                                <option value="2" {% if user_profile.grade_level == 2 %}selected{% endif %}>Grade 2</option>
+                                                <option value="3" {% if user_profile.grade_level == 3 %}selected{% endif %}>Grade 3</option>
+                                                <option value="4" {% if user_profile.grade_level == 4 %}selected{% endif %}>Grade 4</option>
+                                                <option value="5" {% if user_profile.grade_level == 5 %}selected{% endif %}>Grade 5</option>
+                                                <option value="6" {% if user_profile.grade_level == 6 %}selected{% endif %}>Grade 6</option>
+                                                <option value="7" {% if user_profile.grade_level == 7 %}selected{% endif %}>Grade 7</option>
+                                                <option value="8" {% if user_profile.grade_level == 8 %}selected{% endif %}>Grade 8</option>
+                                                <option value="9" {% if user_profile.grade_level == 9 %}selected{% endif %}>Grade 9</option>
+                                                <option value="10" {% if user_profile.grade_level == 10 %}selected{% endif %}>Grade 10</option>
+                                                <option value="11" {% if user_profile.grade_level == 11 %}selected{% endif %}>Grade 11</option>
+                                                <option value="12" {% if user_profile.grade_level == 12 %}selected{% endif %}>Grade 12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-25">
+                                    <label for="school_name">School Name (optional)</label>
+                                    <input type="text" name="school_name" id="school_name" class="form-control"
+                                           value="{{ user_profile.school_name }}" placeholder="Enter your school name">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="region">Region</label>
+                                            <select name="region" id="region" class="form-control">
+                                                <option value="">Select Region</option>
+                                                <option value="greater_accra" {% if user_profile.region == 'greater_accra' %}selected{% endif %}>Greater Accra</option>
+                                                <option value="ashanti" {% if user_profile.region == 'ashanti' %}selected{% endif %}>Ashanti</option>
+                                                <option value="central" {% if user_profile.region == 'central' %}selected{% endif %}>Central</option>
+                                                <option value="eastern" {% if user_profile.region == 'eastern' %}selected{% endif %}>Eastern</option>
+                                                <option value="northern" {% if user_profile.region == 'northern' %}selected{% endif %}>Northern</option>
+                                                <option value="upper_east" {% if user_profile.region == 'upper_east' %}selected{% endif %}>Upper East</option>
+                                                <option value="upper_west" {% if user_profile.region == 'upper_west' %}selected{% endif %}>Upper West</option>
+                                                <option value="volta" {% if user_profile.region == 'volta' %}selected{% endif %}>Volta</option>
+                                                <option value="western" {% if user_profile.region == 'western' %}selected{% endif %}>Western</option>
+                                                <option value="western_north" {% if user_profile.region == 'western_north' %}selected{% endif %}>Western North</option>
+                                                <option value="bono" {% if user_profile.region == 'bono' %}selected{% endif %}>Bono</option>
+                                                <option value="bono_east" {% if user_profile.region == 'bono_east' %}selected{% endif %}>Bono East</option>
+                                                <option value="ahafo" {% if user_profile.region == 'ahafo' %}selected{% endif %}>Ahafo</option>
+                                                <option value="savannah" {% if user_profile.region == 'savannah' %}selected{% endif %}>Savannah</option>
+                                                <option value="north_east" {% if user_profile.region == 'north_east' %}selected{% endif %}>North East</option>
+                                                <option value="oti" {% if user_profile.region == 'oti' %}selected{% endif %}>Oti</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="preferred_language">Preferred Language</label>
+                                            <select name="preferred_language" id="preferred_language" class="form-control">
+                                                <option value="english" {% if user_profile.preferred_language == 'english' %}selected{% endif %}>English</option>
+                                                <option value="twi" {% if user_profile.preferred_language == 'twi' %}selected{% endif %}>Twi</option>
+                                                <option value="ga" {% if user_profile.preferred_language == 'ga' %}selected{% endif %}>Ga</option>
+                                                <option value="ewe" {% if user_profile.preferred_language == 'ewe' %}selected{% endif %}>Ewe</option>
+                                                <option value="fante" {% if user_profile.preferred_language == 'fante' %}selected{% endif %}>Fante</option>
+                                                <option value="dagbani" {% if user_profile.preferred_language == 'dagbani' %}selected{% endif %}>Dagbani</option>
+                                                <option value="hausa" {% if user_profile.preferred_language == 'hausa' %}selected{% endif %}>Hausa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Learning Preferences -->
+                            <div class="profile-section">
+                                <h3 class="section-title">Learning Preferences</h3>
+                                <p class="section-description">Help us understand how you learn best so we can personalize your experience.</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="learning_style">Learning Style</label>
+                                            <select name="learning_style" id="learning_style" class="form-control">
+                                                <option value="">How do you learn best?</option>
+                                                <option value="visual" {% if user_profile.learning_style == 'visual' %}selected{% endif %}>Visual (seeing images, diagrams)</option>
+                                                <option value="auditory" {% if user_profile.learning_style == 'auditory' %}selected{% endif %}>Auditory (listening, discussions)</option>
+                                                <option value="kinesthetic" {% if user_profile.learning_style == 'kinesthetic' %}selected{% endif %}>Hands-on (doing, practicing)</option>
+                                                <option value="reading" {% if user_profile.learning_style == 'reading' %}selected{% endif %}>Reading/Writing</option>
+                                                <option value="mixed" {% if user_profile.learning_style == 'mixed' %}selected{% endif %}>Mixed approach</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="study_time_preference">Study Time Preference</label>
+                                            <select name="study_time_preference" id="study_time_preference" class="form-control">
+                                                <option value="flexible" {% if user_profile.study_time_preference == 'flexible' %}selected{% endif %}>Flexible</option>
+                                                <option value="morning" {% if user_profile.study_time_preference == 'morning' %}selected{% endif %}>Morning</option>
+                                                <option value="afternoon" {% if user_profile.study_time_preference == 'afternoon' %}selected{% endif %}>Afternoon</option>
+                                                <option value="evening" {% if user_profile.study_time_preference == 'evening' %}selected{% endif %}>Evening</option>
+                                                <option value="night" {% if user_profile.study_time_preference == 'night' %}selected{% endif %}>Night</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="difficulty_preference">Difficulty Preference</label>
+                                            <select name="difficulty_preference" id="difficulty_preference" class="form-control">
+                                                <option value="beginner" {% if user_profile.difficulty_preference == 'beginner' %}selected{% endif %}>Beginner - Start with basics</option>
+                                                <option value="intermediate" {% if user_profile.difficulty_preference == 'intermediate' %}selected{% endif %}>Intermediate - Some knowledge</option>
+                                                <option value="advanced" {% if user_profile.difficulty_preference == 'advanced' %}selected{% endif %}>Advanced - Challenge me</option>
+                                                <option value="mixed" {% if user_profile.difficulty_preference == 'mixed' %}selected{% endif %}>Mixed - Adapt to my progress</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-25">
+                                            <label for="motivation_type">What motivates you?</label>
+                                            <select name="motivation_type" id="motivation_type" class="form-control">
+                                                <option value="achievement" {% if education_profile.motivation_type == 'achievement' %}selected{% endif %}>Personal Achievement</option>
+                                                <option value="competition" {% if education_profile.motivation_type == 'competition' %}selected{% endif %}>Competition with Others</option>
+                                                <option value="collaboration" {% if education_profile.motivation_type == 'collaboration' %}selected{% endif %}>Working with Others</option>
+                                                <option value="exploration" {% if education_profile.motivation_type == 'exploration' %}selected{% endif %}>Exploring New Topics</option>
+                                                <option value="goal_oriented" {% if education_profile.motivation_type == 'goal_oriented' %}selected{% endif %}>Reaching Specific Goals</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-25">
+                                    <label for="learning_goals">Learning Goals (optional)</label>
+                                    <textarea name="learning_goals" id="learning_goals" class="form-control" rows="3"
+                                              placeholder="What do you want to achieve with your learning?">{{ user_profile.learning_goals }}</textarea>
+                                </div>
+
+                                <div class="form-group mb-25">
+                                    <label for="interests">Interests (optional)</label>
+                                    <textarea name="interests" id="interests" class="form-control" rows="3"
+                                              placeholder="What subjects or topics interest you most?">{{ user_profile.interests }}</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Profile Summary -->
+                            <div class="profile-section">
+                                <h3 class="section-title">Your Profile Summary</h3>
+                                <div class="profile-info">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="info-item">
+                                                <strong>Name:</strong> {{ user.get_full_name }}
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Education Level:</strong> {{ user_profile.get_education_level_display }}
+                                            </div>
+                                            {% if user_profile.grade_level %}
+                                            <div class="info-item">
+                                                <strong>Grade:</strong> {{ user_profile.grade_level }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="info-item">
+                                                <strong>Learning Style:</strong> {{ user_profile.get_learning_style_display }}
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Study Time:</strong> {{ user_profile.get_study_time_preference_display }}
+                                            </div>
+                                            <div class="info-item">
+                                                <strong>Difficulty Level:</strong> {{ user_profile.get_difficulty_preference_display }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subject Preferences -->
+                            {% if recommended_subjects %}
+                            <div class="profile-section">
+                                <h3 class="section-title">Recommended Subjects for Your Level</h3>
+                                <p class="section-description">
+                                    Based on your education level ({{ user_profile.get_education_level_display }})
+                                    {% if user_profile.grade_level %} and grade {{ user_profile.grade_level }}{% endif %},
+                                    here are the subjects we recommend:
+                                </p>
+
+                                <div class="subjects-grid">
+                                    {% for subject in recommended_subjects %}
+                                    <div class="subject-card">
+                                        <div class="subject-header">
+                                            <h4>{{ subject.name }}</h4>
+                                            <span class="subject-category">{{ subject.get_subject_category_display }}</span>
+                                        </div>
+                                        <p class="subject-description">{{ subject.description|truncatechars:100 }}</p>
+
+                                        <div class="subject-actions">
+                                            <label class="subject-checkbox">
+                                                <input type="checkbox" name="favorite_subjects" value="{{ subject.id }}">
+                                                <span class="checkmark"></span>
+                                                I'm interested in this
+                                            </label>
+                                            <label class="subject-checkbox">
+                                                <input type="checkbox" name="strong_subjects" value="{{ subject.id }}">
+                                                <span class="checkmark"></span>
+                                                I'm strong in this
+                                            </label>
+                                        </div>
+
+                                        {% if subject.topics %}
+                                        <div class="subject-topics">
+                                            <strong>Topics:</strong>
+                                            <div class="topics-list">
+                                                {% for topic in subject.topics|slice:":3" %}
+                                                    <span class="topic-tag">{{ topic }}</span>
+                                                {% endfor %}
+                                                {% if subject.topics|length > 3 %}
+                                                    <span class="topic-tag">+{{ subject.topics|length|add:"-3" }} more</span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            <!-- Learning Goals Recap -->
+                            {% if user_profile.learning_goals or user_profile.interests %}
+                            <div class="profile-section">
+                                <h3 class="section-title">Your Learning Goals & Interests</h3>
+                                {% if user_profile.learning_goals %}
+                                <div class="goal-item">
+                                    <strong>What you want to achieve:</strong>
+                                    <p>{{ user_profile.learning_goals }}</p>
+                                </div>
+                                {% endif %}
+                                {% if user_profile.interests %}
+                                <div class="goal-item">
+                                    <strong>Your interests:</strong>
+                                    <p>{{ user_profile.interests }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            <!-- Content Recommendations -->
+                            <div class="profile-section">
+                                <h3 class="section-title">Personalized Learning Approach</h3>
+                                <div class="recommendations">
+                                    <div class="recommendation-item">
+                                        <i class="fa-light fa-brain"></i>
+                                        <div>
+                                            <strong>Learning Style Match:</strong>
+                                            <p>Based on your {{ user_profile.get_learning_style_display|lower }} learning style,
+                                            we'll prioritize {{ education_profile.preferred_content_types|join:", " }} content for you.</p>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-item">
+                                        <i class="fa-light fa-chart-line"></i>
+                                        <div>
+                                            <strong>Difficulty Adaptation:</strong>
+                                            <p>Starting at {{ user_profile.get_difficulty_preference_display|lower }} level,
+                                            we'll adapt content difficulty based on your progress.</p>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-item">
+                                        <i class="fa-light fa-clock"></i>
+                                        <div>
+                                            <strong>Study Schedule:</strong>
+                                            <p>We'll suggest study sessions during your preferred {{ user_profile.get_study_time_preference_display|lower }} hours.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Complete Setup & Start Learning
+                                    <i class="fa-light fa-arrow-right ms-2"></i>
+                                </button>
+                                <p class="mt-3 text-muted">You can always update these preferences in your account settings.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- profile settings area end -->
+</main>
+
+<style>
+.profile-settings-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-subtitle {
+    color: #6366f1;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile-title {
+    color: #1f2937;
+    margin-bottom: 15px;
+}
+
+.profile-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section-title {
+    color: #374151;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.profile-info {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.subject-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.subject-card:hover {
+    border-color: #6366f1;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.1);
+}
+
+.subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.subject-header h4 {
+    color: #1f2937;
+    margin: 0;
+    font-size: 18px;
+}
+
+.subject-category {
+    background: #6366f1;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.subject-description {
+    color: #6b7280;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.subject-actions {
+    margin-bottom: 15px;
+}
+
+.subject-checkbox {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    cursor: pointer;
+}
+
+.subject-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.subject-topics {
+    margin-top: 15px;
+}
+
+.topics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.topic-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.goal-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    border-left: 4px solid #0ea5e9;
+}
+
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: #fef7ff;
+    border-radius: 10px;
+    border-left: 4px solid #a855f7;
+}
+
+.recommendation-item i {
+    font-size: 24px;
+    color: #a855f7;
+    margin-top: 5px;
+}
+
+.form-actions .btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-control option {
+    padding: 8px;
+}
+
+.text-danger {
+    color: #dc2626;
+}
+
+@media (max-width: 768px) {
+    .profile-settings-content {
+        padding: 20px;
+    }
+
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+</style>
+{% endblock %}

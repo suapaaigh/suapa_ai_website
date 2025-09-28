@@ -1,26 +1,25 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" data-bs-theme="light">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI Tools - Thunder AI</title>
-    <meta name="description"
-        content="Thunder AI is a responsive Bootstrap admin dashboard template with AI tools, dark mode, prebuilt themes, and powerful UI kit for modern web apps.">
-    <meta name="keywords"
-        content="Thunder AI dashboard, AI admin template, Bootstrap admin template, responsive admin dashboard, HTML admin UI kit, dark mode dashboard, AI tools dashboard, admin dashboard with themes, modern admin panel, Bootstrap 5 admin UI, CSS variables dashboard, light dark admin template">
+    <title>
+        {% block title %}Sua Pa AI Bot{% endblock title %}
+    </title>
+    <meta name="description" content="Thunder AI is a responsive Bootstrap admin dashboard template with AI tools, dark mode, prebuilt themes, and powerful UI kit for modern web apps.">
+    <meta name="keywords" content="Thunder AI dashboard, AI admin template, Bootstrap admin template, responsive admin dashboard, HTML admin UI kit, dark mode dashboard, AI tools dashboard, admin dashboard with themes, modern admin panel, Bootstrap 5 admin UI, CSS variables dashboard, light dark admin template">
     <meta name="author" content="ThemeMakker - Expert Admin Dashboard & UI Kit Developers">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{% static "chat/assets/images/favicon.ico" %}" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/style-layout-2.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="{% static "chat/assets/css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "chat/assets/css/style-layout-2.css" %}">
+    <link rel="stylesheet" href="{% static "chat/assets/css/responsive.css" %}">
 </head>
-
 <body data-thunderal="theme-indigo" class="layout-2">
     <!-- Start:: Header -->
     <header class="header sticky-top" id="header">
@@ -28,9 +27,9 @@
             <div class="d-flex align-items-center justify-content-between py-md-3 py-2">
                 <!-- Start:: Left Header -->
                 <div class="logo">
-                    <a href="index.html" aria-label="Thunder AI Dashboard">
-                        <img src="assets/images/logo.svg" alt="Thunder AI Logo" class="img-fluid">
-                        <small class="d-block text-uppercase text-secondary text-truncate">AI Chat Assistant</small>
+                    <a href="{% url "home" %}" aria-label="Go Home">
+                        <img src="{% static "chat/assets/images/logo.svg" %}" alt="Thunder AI Logo" class="img-fluid">
+                        <small class="d-block text-uppercase text-secondary text-truncate">Sua Pa AI Bot</small>
                     </a>
                 </div>
                 <!-- End:: Left Header -->
@@ -38,13 +37,11 @@
                 <!-- Right Header -->
                 <div class="right-header d-flex flex-fill align-items-center justify-content-between">
                     <a href="#" class="btn p-0 ms-3 hover-svg" data-bs-toggle="modal" data-bs-target="#Menu_Grid">
-                        <svg width="28" height="28" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5.27148 5H12.7296V12.5H5.27148V5Z" />
-                            <path d="M17.7017 5H25.1598V12.5H17.7017V5Z" />
-                            <path d="M5.27148 17.5H12.7296V25H5.27148V17.5Z" />
-                            <path
-                                d="M17.7017 21.25C17.7017 22.2446 18.0945 23.1984 18.7939 23.9017C19.4932 24.6049 20.4417 25 21.4307 25C22.4197 25 23.3682 24.6049 24.0676 23.9017C24.7669 23.1984 25.1598 22.2446 25.1598 21.25C25.1598 20.2554 24.7669 19.3016 24.0676 18.5983C23.3682 17.8951 22.4197 17.5 21.4307 17.5C20.4417 17.5 19.4932 17.8951 18.7939 18.5983C18.0945 19.3016 17.7017 20.2554 17.7017 21.25Z" />
+                        <svg width="28" height="28" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5.27148 5H12.7296V12.5H5.27148V5Z"/>
+                            <path d="M17.7017 5H25.1598V12.5H17.7017V5Z"/>
+                            <path d="M5.27148 17.5H12.7296V25H5.27148V17.5Z"/>
+                            <path d="M17.7017 21.25C17.7017 22.2446 18.0945 23.1984 18.7939 23.9017C19.4932 24.6049 20.4417 25 21.4307 25C22.4197 25 23.3682 24.6049 24.0676 23.9017C24.7669 23.1984 25.1598 22.2446 25.1598 21.25C25.1598 20.2554 24.7669 19.3016 24.0676 18.5983C23.3682 17.8951 22.4197 17.5 21.4307 17.5C20.4417 17.5 19.4932 17.8951 18.7939 18.5983C18.0945 19.3016 17.7017 20.2554 17.7017 21.25Z"/>
                         </svg>
                     </a>
                     <ul class="nav navbar-right d-flex gap-lg-4 gap-2 align-items-center ms-auto">
@@ -55,14 +52,10 @@
                         <li class="d-flex gap-2 align-items-center">
                             <!-- Dropdown Menu for Notifications -->
                             <div class="dropdown">
-                                <a class="nav-link dropdown-toggle hover-svg" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle hover-svg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
                                     <span class="bullet-dot bg-primary animation-blink"></span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-                                        fill="none" stroke="#currentColor" stroke-width="1" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
                                         <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
                                         <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
                                         <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
@@ -70,21 +63,18 @@
                                 </a>
                                 <div class="dropdown-menu p-0 notifications shadow-lg rounded-4 overflow-hidden">
                                     <div class="card border-0">
-                                        <div
-                                            class="card-header d-flex justify-content-between align-items-center p-4 border-bottom-0">
+                                        <div class="card-header d-flex justify-content-between align-items-center p-4 border-bottom-0">
                                             <h6 class="card-title mb-0">Notifications Center</h6>
                                             <span class="badge bg-primary">19</span>
                                         </div>
-                                        <ul
-                                            class="list-unstyled list-group list-group-custom mb-0 rounded-0 li_animate">
+                                        <ul class="list-unstyled list-group list-group-custom mb-0 rounded-0 li_animate">
                                             <li class="list-group-item d-flex border-end-0 border-start-0">
                                                 <div class="d-flex flex-column flex-grow-1 p-2 overflow-hidden">
                                                     <h6 class="mb-0 fw-medium">
                                                         <a href="#">7 New Feedback</a>
                                                         <small class="float-end text-muted">Today</small>
                                                     </h6>
-                                                    <small class="d-block text-truncate">It will give a smart finishing
-                                                        to your site</small>
+                                                    <small class="d-block text-truncate">It will give a smart finishing to your site</small>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex border-end-0 border-start-0">
@@ -93,8 +83,7 @@
                                                         <a href="#">New User</a>
                                                         <small class="float-end text-muted">10:45</small>
                                                     </h6>
-                                                    <small class="d-block text-truncate">I feel great! Thanks
-                                                        team</small>
+                                                    <small class="d-block text-truncate">I feel great! Thanks team</small>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex border-end-0 border-start-0">
@@ -103,13 +92,10 @@
                                                         <a href="#">Server Warning</a>
                                                         <small class="float-end text-muted">10:50</small>
                                                     </h6>
-                                                    <small class="d-block text-truncate">Your connection is not
-                                                        private</small>
+                                                    <small class="d-block text-truncate">Your connection is not private</small>
                                                     <div class="mt-2 d-flex gap-2 align-items-center">
-                                                        <a href="#"
-                                                            class="btn btn-sm rounded-pill bg-primary text-white">Accept</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm rounded-pill btn-dark text-white">Decline</a>
+                                                        <a href="#" class="btn btn-sm rounded-pill bg-primary text-white">Accept</a>
+                                                        <a href="#" class="btn btn-sm rounded-pill btn-dark text-white">Decline</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -119,8 +105,7 @@
                                                         <a href="#">Issue Fixed</a>
                                                         <small class="float-end text-muted">11:05</small>
                                                     </h6>
-                                                    <small class="d-block text-truncate">WE have fix all Design bug with
-                                                        Responsive</small>
+                                                    <small class="d-block text-truncate">WE have fix all Design bug with Responsive</small>
                                                 </div>
                                             </li>
                                             <li class="list-group-item d-flex border-end-0 border-start-0">
@@ -129,8 +114,7 @@
                                                         <a href="#">7 New Orders</a>
                                                         <small class="float-end text-muted">11:35</small>
                                                     </h6>
-                                                    <small class="d-block text-truncate">You received a new order from
-                                                        Tina.</small>
+                                                    <small class="d-block text-truncate">You received a new order from Tina.</small>
                                                 </div>
                                             </li>
                                         </ul>
@@ -141,12 +125,9 @@
                                 </div>
                             </div>
                             <!-- Dropdown Menu for Languages -->
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle hover-svg" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-                                        fill="none" stroke="#currentColor" stroke-width="1" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                            <div class="d-md-inline-block d-none dropdown">
+                                <a class="nav-link dropdown-toggle hover-svg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Select Languages">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M4 5h7" />
                                         <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
                                         <path d="M5 9c0 2.144 2.952 3.908 6.7 4" />
@@ -155,52 +136,28 @@
                                     </svg>
                                 </a>
                                 <ul class="dropdown-menu p-2 p-xl-3 language shadow-lg rounded-4 li_animate">
-                                    <li class="mb-1"><a class="dropdown-item rounded-pill active" href="#">English</a>
-                                    </li>
+                                    <li class="mb-1"><a class="dropdown-item rounded-pill active" href="#">English</a></li>
                                     <li class="mb-1"><a class="dropdown-item rounded-pill" href="#">French</a></li>
                                     <li class="mb-1"><a class="dropdown-item rounded-pill" href="#">German</a></li>
                                 </ul>
                             </div>
                             <!-- Theme Light/Dark/Auto -->
                             <div class="dropdown">
-                                <a class="dropdown-toggle d-flex" href="#" id="bd-theme" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <svg class="theme-icon-active" width="28" height="28" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <use href="#sun-fill"></use>
-                                    </svg>
+                                <a class="dropdown-toggle d-flex" href="#" id="bd-theme" data-bs-toggle="dropdown" aria-expanded="false" aria-label="theme option light/dark">
+                                    <svg class="theme-icon-active" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><use href="#sun-fill"></use></svg>
                                 </a>
-                                <ul class="dropdown-menu p-2 p-xl-3 language shadow-lg rounded-4 li_animate dropdown-menu-end"
-                                    aria-labelledby="bd-theme">
-                                    <li class="mb-1"><a class="dropdown-item rounded-pill active" href="#"
-                                            data-bs-theme-value="light"><svg class="me-2" width="26" height="26"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <use href="#sun-fill"></use>
-                                            </svg> Light</a></li>
-                                    <li class="mb-1"><a class="dropdown-item rounded-pill" href="#"
-                                            data-bs-theme-value="dark"><svg class="me-2" width="26" height="26"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <use href="#moon-stars-fill"></use>
-                                            </svg> Dark</a></li>
-                                    <li class="mb-1"><a class="dropdown-item rounded-pill" href="#"
-                                            data-bs-theme-value="auto"><svg class="me-2" width="26" height="26"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <use href="#circle-half"></use>
-                                            </svg> Auto</a></li>
+                                <ul class="dropdown-menu p-2 p-xl-3 language shadow-lg rounded-4 li_animate dropdown-menu-end" aria-labelledby="bd-theme">
+                                    <li class="mb-1"><a class="dropdown-item rounded-pill active" href="#" data-bs-theme-value="light"><svg class="me-2" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><use href="#sun-fill"></use></svg> Light</a></li>
+                                    <li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="dark"><svg class="me-2" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><use href="#moon-stars-fill"></use></svg> Dark</a></li>
+                                    <li class="mb-1"><a class="dropdown-item rounded-pill" href="#" data-bs-theme-value="auto"><svg class="me-2" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><use href="#circle-half"></use></svg> Auto</a></li>
                                 </ul>
                                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                                     <symbol id="sun-fill" viewBox="0 0 24 24">
                                         <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                                        <path
-                                            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
                                     </symbol>
                                     <symbol id="moon-stars-fill" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
                                         <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
                                         <path d="M19 11h2m-1 -1v2" />
                                     </symbol>
@@ -215,13 +172,9 @@
                             </div>
                             <!-- Theme more setting -->
                             <div>
-                                <a class="d-flex hover-svg" data-bs-toggle="offcanvas" href="#ThemeSettings"
-                                    role="button" aria-controls="ThemeSettings">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+                                <a class="d-flex hover-svg" data-bs-toggle="offcanvas" href="#ThemeSettings" role="button" aria-controls="ThemeSettings" aria-label="thunder AI theme setting">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
                                         <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                                         <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                                         <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
@@ -232,30 +185,23 @@
                         <!-- Profile User Dropdown -->
                         <li class="p-2 pe-0">
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="profile-dropdown d-flex align-items-center">
-                                        <img class="rounded-circle border border-white shadow"
-                                            src="assets/images/profile.png" width="30" height="30" alt="Profile">
-                                        <span class="h6 mb-0 ms-1 fw-normal nav-link p-0 d-none d-lg-block">Allie
-                                            Grater</span>
+                                        <img class="rounded-circle border border-white shadow" src="{% static "chat/assets/images/profile-navbar.png" %}" width="30" height="30" alt="Profile">
+                                        <span class="h6 mb-0 ms-1 fw-normal nav-link p-0 d-none d-lg-block">{{ user.username }}</span>
                                     </span>
                                 </button>
                                 <div class="dropdown-menu rounded-4 shadow p-0 overflow-hidden">
                                     <div class="card border-0 w240 overflow-hidden">
                                         <div class="card-body">
-                                            <h5 class="mb-1">Allie Grater</h5>
-                                            <p>allie.grater@gmail.com</p>
-                                            <a href="auth-signin.html"
-                                                class="btn btn-primary text-uppercase w-100 rounded-pill">Sign out</a>
+                                            <h5 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
+                                            <p>{{ user.email }}</p>
+                                            <a href="auth-signin.html" class="btn btn-primary text-uppercase w-100 rounded-pill">Sign out</a>
                                         </div>
                                         <div class="list-group m-2">
-                                            <a class="list-group-item rounded-pill list-group-item-action border-0"
-                                                href="account-settings.html">Settings</a>
-                                            <a class="list-group-item rounded-pill list-group-item-action border-0"
-                                                href="todo.html">My Todo</a>
-                                            <a class="list-group-item rounded-pill list-group-item-action border-0"
-                                                href="project.html">My Projects</a>
+                                            <a class="list-group-item rounded-pill list-group-item-action border-0" aria-label="Thunder Ai account Settings" href="{% url "profile-settings" %}">Settings</a>
+                                            <a class="list-group-item rounded-pill list-group-item-action border-0" aria-label="Thunder Ai my to list" href="todo.html">My Todo</a>
+                                            <a class="list-group-item rounded-pill list-group-item-action border-0" aria-label="Thunder Ai mu project" href="project.html">My Projects</a>
                                         </div>
                                     </div>
                                 </div>
@@ -276,15 +222,14 @@
                 <div class="back-btn d-flex align-items-center">
                     <a href="javascript:history.back()" class="d-flex align-items-center hover-svg">
                         <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 7H15M1 7L7 13M1 7L7 1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1 7H15M1 7L7 13M1 7L7 1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <span class="ms-2 d-none d-md-block fs-14 text-black-50">Back</span>
                     </a>
                 </div>
                 <div class="right-breadcrumb d-flex flex-fill align-items-center justify-content-between">
-                    <div class="page-name fs-20 fw-bold ms-md-4 ms-2">AI Chat Assistant</div>
-                    <ul
-                        class="page-action list-unstyled ms-auto mb-0 gap-3 d-flex align-items-center justify-content-end">
+                    <div class="page-name fs-20 fw-bold ms-md-4 ms-2">{{ page_name }}</div>
+                    <ul class="page-action list-unstyled ms-auto mb-0 gap-3 d-flex align-items-center justify-content-end">
                         <li class="position-relative d-md-block d-none">
                             <input class="form-control position-absolute px-3 rounded-pill z-0" type="text" id="PageSearchInput" placeholder="Search..." />
                             <a href="#" class="hover-svg position-relative text-decoration-none z-3" id="searchToggleBtn">
@@ -296,28 +241,25 @@
                         </li>
                         <li class="d-md-block d-none">
                             <a href="#" class="text-decoration-none hover-svg">
-                                <svg width="26" height="26" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M25 13.7501C24.6943 11.5504 23.6738 9.5122 22.0958 7.94949C20.5178 6.38679 18.4697 5.38627 16.2671 5.10206C14.0645 4.81785 11.8295 5.26572 9.9065 6.37668C7.98348 7.48763 6.47906 9.20004 5.625 11.2501M5 6.25012V11.2501H10" />
-                                    <path d="M5 16.25C5.3057 18.4497 6.32616 20.4879 7.9042 22.0506C9.48224 23.6133 11.5303 24.6139 13.7329 24.8981C15.9355 25.1823 18.1705 24.7344 20.0935 23.6234C22.0165 22.5125 23.5209 20.8001 24.375 18.75M25 23.75V18.75H20" />
+                                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M25 13.7501C24.6943 11.5504 23.6738 9.5122 22.0958 7.94949C20.5178 6.38679 18.4697 5.38627 16.2671 5.10206C14.0645 4.81785 11.8295 5.26572 9.9065 6.37668C7.98348 7.48763 6.47906 9.20004 5.625 11.2501M5 6.25012V11.2501H10"/>
+                                    <path d="M5 16.25C5.3057 18.4497 6.32616 20.4879 7.9042 22.0506C9.48224 23.6133 11.5303 24.6139 13.7329 24.8981C15.9355 25.1823 18.1705 24.7344 20.0935 23.6234C22.0165 22.5125 23.5209 20.8001 24.375 18.75M25 23.75V18.75H20"/>
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="text-decoration-none hover-svg">
-                                <svg width="26" height="26" viewBox="0 0 30 30" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.75 15C3.75 15.9946 4.14509 16.9484 4.84835 17.6517C5.55161 18.3549 6.50544 18.75 7.5 18.75C8.49456 18.75 9.44839 18.3549 10.1517 17.6517C10.8549 16.9484 11.25 15.9946 11.25 15C11.25 14.0054 10.8549 13.0516 10.1517 12.3483C9.44839 11.6451 8.49456 11.25 7.5 11.25C6.50544 11.25 5.55161 11.6451 4.84835 12.3483C4.14509 13.0516 3.75 14.0054 3.75 15Z" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M18.75 7.5C18.75 8.49456 19.1451 9.44839 19.8483 10.1517C20.5516 10.8549 21.5054 11.25 22.5 11.25C23.4946 11.25 24.4484 10.8549 25.1517 10.1517C25.8549 9.44839 26.25 8.49456 26.25 7.5C26.25 6.50544 25.8549 5.55161 25.1517 4.84835C24.4484 4.14509 23.4946 3.75 22.5 3.75C21.5054 3.75 20.5516 4.14509 19.8483 4.84835C19.1451 5.55161 18.75 6.50544 18.75 7.5Z" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M18.75 22.5C18.75 23.4946 19.1451 24.4484 19.8483 25.1517C20.5516 25.8549 21.5054 26.25 22.5 26.25C23.4946 26.25 24.4484 25.8549 25.1517 25.1517C25.8549 24.4484 26.25 23.4946 26.25 22.5C26.25 21.5054 25.8549 20.5516 25.1517 19.8483C24.4484 19.1451 23.4946 18.75 22.5 18.75C21.5054 18.75 20.5516 19.1451 19.8483 19.8483C19.1451 20.5516 18.75 21.5054 18.75 22.5Z" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M10.875 13.375L19.125 9.125" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M10.875 16.625L19.125 20.875" stroke-linecap="round" stroke-linejoin="round" />
+                                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.75 15C3.75 15.9946 4.14509 16.9484 4.84835 17.6517C5.55161 18.3549 6.50544 18.75 7.5 18.75C8.49456 18.75 9.44839 18.3549 10.1517 17.6517C10.8549 16.9484 11.25 15.9946 11.25 15C11.25 14.0054 10.8549 13.0516 10.1517 12.3483C9.44839 11.6451 8.49456 11.25 7.5 11.25C6.50544 11.25 5.55161 11.6451 4.84835 12.3483C4.14509 13.0516 3.75 14.0054 3.75 15Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.75 7.5C18.75 8.49456 19.1451 9.44839 19.8483 10.1517C20.5516 10.8549 21.5054 11.25 22.5 11.25C23.4946 11.25 24.4484 10.8549 25.1517 10.1517C25.8549 9.44839 26.25 8.49456 26.25 7.5C26.25 6.50544 25.8549 5.55161 25.1517 4.84835C24.4484 4.14509 23.4946 3.75 22.5 3.75C21.5054 3.75 20.5516 4.14509 19.8483 4.84835C19.1451 5.55161 18.75 6.50544 18.75 7.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18.75 22.5C18.75 23.4946 19.1451 24.4484 19.8483 25.1517C20.5516 25.8549 21.5054 26.25 22.5 26.25C23.4946 26.25 24.4484 25.8549 25.1517 25.1517C25.8549 24.4484 26.25 23.4946 26.25 22.5C26.25 21.5054 25.8549 20.5516 25.1517 19.8483C24.4484 19.1451 23.4946 18.75 22.5 18.75C21.5054 18.75 20.5516 19.1451 19.8483 19.8483C19.1451 20.5516 18.75 21.5054 18.75 22.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.875 13.375L19.125 9.125" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.875 16.625L19.125 20.875" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
                         </li>
                         <li class="d-md-none d-block">
-                            <a href="javascript:void(0);"
-                                class="text-decoration-none btn-toggle-innersidebar hover-svg">
+                            <a href="javascript:void(0);" class="text-decoration-none btn-toggle-innersidebar hover-svg">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M4 4h6v6h-6z" />
                                     <path d="M14 4h6v6h-6z" />
@@ -329,9 +271,9 @@
                         <li>
                             <a href="javascript:void(0);" class="text-decoration-none btn-toggle-leftsidebar hover-svg">
                                 <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 7.5H25" />
-                                    <path d="M8.75 15H25" />
-                                    <path d="M12.5 22.5H25" />
+                                    <path d="M5 7.5H25"/>
+                                    <path d="M8.75 15H25"/>
+                                    <path d="M12.5 22.5H25"/>
                                 </svg>
                             </a>
                         </li>
@@ -356,91 +298,37 @@
                         <div>
                             <ul class="nav flex-column li_animate">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="ai-tools.html">
-                                        AI Chat Assistant
-                                        <p class="mb-0 fs-12 gemini-ai text-muted">
-                                            Powered by <span class="gemini-text fw-bold">Gemini AI</span>
-                                        </p>
+                                    <a class="nav-link" href="{% url "my-bot" %}">
+                                        Sua Pa AI Bot Chat Assistant
                                     </a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="ai-finder.html">AI.TLD Finder</a></li>
-                                <li class="nav-item"><a class="nav-link" href="ai-writer.html">AI Writer Studio</a></li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ai-image-generator.html">
-                                        AI Image Generator
-                                        <p class="mb-0 fs-12 gemini-ai text-muted">
-                                            Powered by <span class="gemini-text fw-bold">Gemini AI</span>
-                                        </p>
+                                    <a class="nav-link" href="ai-finder.html">
+                                        AI.TLD Finder
                                     </a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="ai-modules.html">AI Models</a></li>
-                                <li class="nav-item"><a class="nav-link" href="ai-tool-library.html">AI Tools Library</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url "my-pilot" %}">
+                                        Sua Pa AI Co:Pilot
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url "my-companion" %}">
+                                        Sua Pa AI Companion
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
                 </ul>
             </nav>
         </aside>
+
         <div class="sidebar-overlay"></div>
         <!-- End:: Sidebar -->
 
         <!-- Start:: Content -->
-        <div class="content-area">
-            <div class="container-fluid p-md-0">
-
-                <div class="inner-layout d-flex">
-                    <div class="left-bar p-4 overflow-y-auto">
-                        <h6 class="mb-3">Chat History</h6>
-                        <a href="#" class="btn bg-dark text-light w-100 rounded-pill" id="new-chat">New Chat</a>
-                        <ul class="list-group gap-1 mt-3 li_animate list-unstyled" id="chat-history">
-                            <li class="no-history">
-                                <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0 active">
-                                    <p class="fs-12 mb-1 text-truncate text-center">No History</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body-area d-flex align-items-start flex-column p-md-4 p-0 overflow-y-auto">
-                        <ul class="list-unstyled message-list mb-0 pt-3 pt-md-0 w-100 overflow-y-auto" id="message-box">
-                        </ul>
-                        <div class="w-100 text-center" id="error-box"></div>
-                        <div class="chat-input-container pt-3 pt-md-0 w-100 pb-2 pb-md-0">
-                            <form id="ai-chat-form" enctype="multipart/form-data">
-                                <div class="align-items-center border chat-input-wrapper d-flex gap-3 mb-3 p-lg-3 p-2 rounded-4">
-                                    <textarea class="form-control rounded-3 border-0" name="prompt" id="chat-prompt-input" placeholder="Type your message here..." rows="1"></textarea>
-                                    <div class="align-items-center chat-input-actions d-flex gap-1">
-                                        <div id="image-preview-container" class="position-relative d-none">
-                                            <img id="image-preview" src="" alt="Preview" style="max-width: 50px; max-height: 50px; border-radius: 8px;" accept="image/*">
-                                            <span id="remove-image" style="position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 0px 6px; cursor: pointer;">×</span>
-                                        </div>
-                                        <label class="btn p-2 d-md-block d-none file-attach-btn" title="Attach file" for="chat-file-input">
-                                            <svg class="hover-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M14.364 7.24264L7.86396 13.7426C7.46614 14.1405 7.24264 14.68 7.24264 15.2426C7.24264 15.8052 7.46614 16.3448 7.86396 16.7426C8.26179 17.1405 8.80135 17.364 9.36396 17.364C9.92657 17.364 10.4661 17.1405 10.864 16.7426L17.364 10.2426C18.1596 9.44699 18.6066 8.36786 18.6066 7.24264C18.6066 6.11742 18.1596 5.03829 17.364 4.24264C16.5683 3.44699 15.4892 3 14.364 3C13.2387 3 12.1596 3.44699 11.364 4.24264L4.86396 10.7426C3.67049 11.9361 3 13.5548 3 15.2426C3 16.9305 3.67049 18.5492 4.86396 19.7426C6.05744 20.9361 7.67613 21.6066 9.36396 21.6066C11.0518 21.6066 12.6705 20.9361 13.864 19.7426L20.364 13.2426" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                        </label>
-                                        <input type="file" class="form-control" name="file-input" id="chat-file-input">
-                                        <button class="btn p-2" title="Voice input" type="button" id="record">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M9 2m0 3a3 3 0 0 1 3 -3h0a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3h0a3 3 0 0 1 -3 -3z" />
-                                                <path d="M5 10a7 7 0 0 0 14 0" />
-                                                <path d="M8 21l8 0" />
-                                                <path d="M12 17l0 4" />
-                                            </svg>
-                                        </button>
-                                        <button type="submit" class="btn btn-primary ms-2" id="send-button">Send</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <ul
-                                class="align-items-center chat-suggestions d-flex flex-wrap gap-1 li_animate list-unstyled mb-0">
-                                <li><button class="btn btn-light rounded-pill border fs-12" onclick="setPrompt('Help me write PHP code')">Help me write PHP code</button></li>
-                                <li><button class="btn btn-light rounded-pill border fs-12" onclick="setPrompt('Explain Figma Design basics')">Explain Figma Design basics</button></li>
-                                <li><button class="btn btn-light rounded-pill border fs-12" onclick="setPrompt('Analyze this AI trend')">Analyze this AI trend</button></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        {% block content %}{% endblock content %}
         <!-- End:: Content -->
 
     </div>
@@ -570,25 +458,6 @@
                     </ul>
                     <h6>Dashboard Modules</h6>
                     <ul class="list-unstyled d-flex justify-content-sm-start justify-content-between flex-wrap p-0 gap-xl-4 gap-md-3 gap-2 mt-3 li_animate">
-                        <!-- Icon: Dashboard-->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="analytics.html" aria-label="Overview of your analytics & activities.">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M25 32.5C25 33.8261 25.5268 35.0979 26.4645 36.0355C27.4021 36.9732 28.6739 37.5 30 37.5C31.3261 37.5 32.5979 36.9732 33.5355 36.0355C34.4732 35.0979 35 33.8261 35 32.5C35 31.1739 34.4732 29.9021 33.5355 28.9645C32.5979 28.0268 31.3261 27.5 30 27.5C28.6739 27.5 27.4021 28.0268 26.4645 28.9645C25.5268 29.9021 25 31.1739 25 32.5Z"/>
-                                        <path d="M33.625 28.875L38.75 23.75"/>
-                                        <path d="M16 50C12.3454 47.0952 9.68478 43.1256 8.38695 38.6412C7.08911 34.1568 7.2183 29.3797 8.75661 24.972C10.2949 20.5643 13.1662 16.7443 16.9725 14.0413C20.7788 11.3382 25.3316 9.88611 30 9.88611C34.6684 9.88611 39.2212 11.3382 43.0275 14.0413C46.8338 16.7443 49.7051 20.5643 51.2434 24.972C52.7817 29.3797 52.9109 34.1568 51.6131 38.6412C50.3152 43.1256 47.6546 47.0952 44 50H16Z"/>
-                                    </svg>
-                                    <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M18 7V21L12 17L6 21V7C6 5.93913 6.42143 4.92172 7.17157 4.17157C7.92172 3.42143 8.93913 3 10 3H14C15.0609 3 16.0783 3.42143 16.8284 4.17157C17.5786 4.92172 18 5.93913 18 7Z"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">Dashboard</h5>
-                            </a>
-                        </li>
-                        <!-- Icon: AI Tools-->
                         <li class="module-item position-relative">
                             <a class="text-center animated-icon" href="ai-tools.html" aria-label="Smart tools to boost productivity.">
                                 <div class="module-box rounded-4">
@@ -604,94 +473,6 @@
                             </a>
                             <span class="align-items-center avatar bg-warning d-flex fs-12 fw-bold justify-content-center md position-absolute px-4 rounded-3 shadow-sm text-white" style="top: -12px; right: -12px;">Pro</span>
                         </li>
-                        <!-- Icon: HRMS -->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="emp-profile.html" aria-label="Stay updated with your messages.">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M25 32.5C25 33.8261 25.5268 35.0979 26.4645 36.0355C27.4021 36.9732 28.6739 37.5 30 37.5C31.3261 37.5 32.5979 36.9732 33.5355 36.0355C34.4732 35.0979 35 33.8261 35 32.5C35 31.1739 34.4732 29.9021 33.5355 28.9645C32.5979 28.0268 31.3261 27.5 30 27.5C28.6739 27.5 27.4021 28.0268 26.4645 28.9645C25.5268 29.9021 25 31.1739 25 32.5Z"/>
-                                        <path d="M20 52.5V50C20 48.6739 20.5268 47.4021 21.4645 46.4645C22.4021 45.5268 23.6739 45 25 45H35C36.3261 45 37.5979 45.5268 38.5355 46.4645C39.4732 47.4021 40 48.6739 40 50V52.5"/>
-                                        <path d="M37.5 12.5C37.5 13.8261 38.0268 15.0979 38.9645 16.0355C39.9021 16.9732 41.1739 17.5 42.5 17.5C43.8261 17.5 45.0979 16.9732 46.0355 16.0355C46.9732 15.0979 47.5 13.8261 47.5 12.5C47.5 11.1739 46.9732 9.90215 46.0355 8.96447C45.0979 8.02678 43.8261 7.5 42.5 7.5C41.1739 7.5 39.9021 8.02678 38.9645 8.96447C38.0268 9.90215 37.5 11.1739 37.5 12.5Z"/>
-                                        <path d="M42.5 25H47.5C48.8261 25 50.0979 25.5268 51.0355 26.4645C51.9732 27.4021 52.5 28.6739 52.5 30V32.5"/>
-                                        <path d="M12.5 12.5C12.5 13.8261 13.0268 15.0979 13.9645 16.0355C14.9021 16.9732 16.1739 17.5 17.5 17.5C18.8261 17.5 20.0979 16.9732 21.0355 16.0355C21.9732 15.0979 22.5 13.8261 22.5 12.5C22.5 11.1739 21.9732 9.90215 21.0355 8.96447C20.0979 8.02678 18.8261 7.5 17.5 7.5C16.1739 7.5 14.9021 8.02678 13.9645 8.96447C13.0268 9.90215 12.5 11.1739 12.5 12.5Z"/>
-                                        <path d="M7.5 32.5V30C7.5 28.6739 8.02678 27.4021 8.96447 26.4645C9.90215 25.5268 11.1739 25 12.5 25H17.5"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">HRMS</h5>
-                            </a>
-                        </li>
-                        <!-- Icon: Hospital -->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="hospital/front-desk-deshboard.html" aria-label="Organize and monitor project progress.">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M7.5 52.5H52.5" style="stroke-dasharray: 45; stroke-dashoffset: 0; transition: stroke-dashoffset 1s;"></path>
-                                        <path d="M12.5 52.5V12.5C12.5 11.1739 13.0268 9.90215 13.9645 8.96447C14.9021 8.02678 16.1739 7.5 17.5 7.5H42.5C43.8261 7.5 45.0979 8.02678 46.0355 8.96447C46.9732 9.90215 47.5 11.1739 47.5 12.5V52.5" style="stroke-dasharray: 120.708; stroke-dashoffset: 0; transition: stroke-dashoffset 1s;"></path>
-                                        <path d="M22.5 52.5V42.5C22.5 41.1739 23.0268 39.9021 23.9645 38.9645C24.9021 38.0268 26.1739 37.5 27.5 37.5H32.5C33.8261 37.5 35.0979 38.0268 36.0355 38.9645C36.9732 39.9021 37.5 41.1739 37.5 42.5V52.5" style="stroke-dasharray: 40.708; stroke-dashoffset: 0; transition: stroke-dashoffset 1s;"></path>
-                                        <path d="M25 22.5H35" style="stroke-dasharray: 10; stroke-dashoffset: 0; transition: stroke-dashoffset 1s;"></path>
-                                        <path d="M30 17.5V27.5" style="stroke-dasharray: 10; stroke-dashoffset: 0; transition: stroke-dashoffset 1s;"></path>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">Hospital</h5>
-                            </a>
-                        </li>
-                        <!-- Icon: Crypto-->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="crypto/user-deshboard.html" aria-label="Cryptocurrency coin">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M42.5 52.5V37.5M47.5 37.5V33.75M47.5 56.25V52.5M42.5 45H50M47.5 45H48.75M48.75 45C49.7446 45 50.6984 45.3951 51.4016 46.0984C52.1049 46.8016 52.5 47.7554 52.5 48.75C52.5 49.7446 52.1049 50.6984 51.4016 51.4016C50.6984 52.1049 49.7446 52.5 48.75 52.5H40M48.75 45C49.7446 45 50.6984 44.6049 51.4016 43.9016C52.1049 43.1984 52.5 42.2446 52.5 41.25C52.5 40.2554 52.1049 39.3016 51.4016 38.5983C50.6984 37.8951 49.7446 37.5 48.75 37.5H40"/>
-                                        <path d="M20 17.5C20 20.1522 21.0536 22.6957 22.9289 24.5711C24.8043 26.4464 27.3478 27.5 30 27.5C32.6522 27.5 35.1957 26.4464 37.0711 24.5711C38.9464 22.6957 40 20.1522 40 17.5C40 14.8478 38.9464 12.3043 37.0711 10.4289C35.1957 8.55357 32.6522 7.5 30 7.5C27.3478 7.5 24.8043 8.55357 22.9289 10.4289C21.0536 12.3043 20 14.8478 20 17.5Z"/>
-                                        <path d="M15 52.5V47.5C15 44.8478 16.0536 42.3043 17.9289 40.4289C19.8043 38.5536 22.3478 37.5 25 37.5H32.5"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">Crypto</h5>
-                            </a>
-                        </li>
-                        <!-- Icon: transport-->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="transport/user-deshboard.html" aria-label="transport Management Systems">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12.5 42.5C12.5 43.8261 13.0268 45.0979 13.9645 46.0355C14.9021 46.9732 16.1739 47.5 17.5 47.5C18.8261 47.5 20.0979 46.9732 21.0355 46.0355C21.9732 45.0979 22.5 43.8261 22.5 42.5C22.5 41.1739 21.9732 39.9021 21.0355 38.9645C20.0979 38.0268 18.8261 37.5 17.5 37.5C16.1739 37.5 14.9021 38.0268 13.9645 38.9645C13.0268 39.9021 12.5 41.1739 12.5 42.5Z"/>
-                                        <path d="M37.5 42.5C37.5 43.8261 38.0268 45.0979 38.9645 46.0355C39.9021 46.9732 41.1739 47.5 42.5 47.5C43.8261 47.5 45.0979 46.9732 46.0355 46.0355C46.9732 45.0979 47.5 43.8261 47.5 42.5C47.5 41.1739 46.9732 39.9021 46.0355 38.9645C45.0979 38.0268 43.8261 37.5 42.5 37.5C41.1739 37.5 39.9021 38.0268 38.9645 38.9645C38.0268 39.9021 37.5 41.1739 37.5 42.5Z"/>
-                                        <path d="M12.5 42.5H7.5V15C7.5 14.337 7.76339 13.7011 8.23223 13.2322C8.70107 12.7634 9.33696 12.5 10 12.5H32.5V42.5M22.5 42.5H37.5M47.5 42.5H52.5V27.5M52.5 27.5H32.5M52.5 27.5L45 15H32.5"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">Transport</h5>
-                            </a>
-                            <span class="align-items-center avatar bg-body text-primary d-flex fs-12 fw-bold justify-content-center position-absolute rounded-3 px-4 shadow-sm md" style="top: -12px; right: -12px;">New</span>
-                        </li>
-                        <!-- Icon: EV-->
-                        <li class="module-item position-relative">
-                            <a class="text-center animated-icon" href="ev/user-deshboard.html" aria-label="EV Charging Station Dashboard">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M45 17.5L42.5 20"/>
-                                        <path d="M35 27.5H37.5C38.8261 27.5 40.0979 28.0268 41.0355 28.9645C41.9732 29.9021 42.5 31.1739 42.5 32.5V40C42.5 40.9946 42.8951 41.9484 43.5984 42.6516C44.3016 43.3549 45.2554 43.75 46.25 43.75C47.2446 43.75 48.1984 43.3549 48.9016 42.6516C49.6049 41.9484 50 40.9946 50 40V22.5L42.5 15"/>
-                                        <path d="M10 50V15C10 13.6739 10.5268 12.4021 11.4645 11.4645C12.4021 10.5268 13.6739 10 15 10H30C31.3261 10 32.5979 10.5268 33.5355 11.4645C34.4732 12.4021 35 13.6739 35 15V50"/>
-                                        <path d="M22.5 28.75L18.75 35H26.25L22.5 41.25"/>
-                                        <path d="M7.5 50H37.5"/>
-                                        <path d="M10 20H35"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">EV Charging</h5>
-                            </a>
-                            <span class="align-items-center avatar bg-body text-primary d-flex fs-12 fw-bold justify-content-center position-absolute rounded-3 px-4 shadow-sm md" style="top: -12px; right: -12px;">New</span>
-                        </li>
-                        <!-- Icon: IOT-->
-                        <li class="module-item">
-                            <a class="text-center animated-icon" href="iot-dashboard.html" aria-label="Organize and monitor project progress.">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4.5 30H7.38889M30.5 4V6.88889M53.6111 30H56.5M12.0111 11.5111L14.0333 13.5333M48.9889 11.5111L46.9667 13.5333"/>
-                                        <path d="M21.3 41.7143C18.8654 39.9153 17.067 37.4072 16.1596 34.5453C15.2521 31.6833 15.2817 28.6126 16.2441 25.7682C17.2065 22.9237 19.0529 20.4497 21.5217 18.6965C23.9906 16.9434 26.9567 16 30 16C33.0433 16 36.0094 16.9434 38.4783 18.6965C40.9472 20.4497 42.7935 22.9237 43.7559 25.7682C44.7183 28.6126 44.7479 31.6833 43.8404 34.5453C42.933 37.4072 41.1346 39.9153 38.7 41.7143C37.5677 42.8185 36.7152 44.1698 36.2114 45.6589C35.7076 47.148 35.5667 48.733 35.8 50.2857C35.8 51.8012 35.1889 53.2547 34.1012 54.3263C33.0135 55.398 31.5383 56 30 56C28.4617 56 26.9865 55.398 25.8988 54.3263C24.8111 53.2547 24.2 51.8012 24.2 50.2857C24.4333 48.733 24.2924 47.148 23.7886 45.6589C23.2848 44.1698 22.4323 42.8185 21.3 41.7143Z"/>
-                                        <path d="M23 44H37"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">IOT</h5>
-                            </a>
-                        </li>
                         <!-- Icon: Project-->
                         <li class="module-item">
                             <a class="text-center animated-icon" href="project.html" aria-label="Organize and monitor project progress.">
@@ -702,20 +483,6 @@
                                     </svg>
                                 </div>
                                 <h5 class="module-title mb-0 mt-2">Project</h5>
-                            </a>
-                        </li>
-                        <!-- Icon: My Products-->
-                        <li class="module-item">
-                            <a class="text-center animated-icon" href="product-list.html" aria-label="E-Commerce">
-                                <div class="module-box rounded-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M25 35C25 36.3261 25.5268 37.5979 26.4645 38.5355C27.4021 39.4732 28.6739 40 30 40C31.3261 40 32.5979 39.4732 33.5355 38.5355C34.4732 37.5979 35 36.3261 35 35C35 33.6739 34.4732 32.4021 33.5355 31.4645C32.5979 30.5268 31.3261 30 30 30C28.6739 30 27.4021 30.5268 26.4645 31.4645C25.5268 32.4021 25 33.6739 25 35Z"/>
-                                        <path d="M12.5026 20H47.5001C48.221 19.9999 48.9334 20.1557 49.5884 20.4568C50.2435 20.7578 50.8257 21.1969 51.2952 21.744C51.7646 22.2911 52.1102 22.9333 52.3083 23.6265C52.5063 24.3196 52.5521 25.0475 52.4425 25.76L49.3051 43.64C49.0327 45.4111 48.1352 47.0262 46.775 48.1928C45.4149 49.3594 43.682 50.0005 41.8901 50H18.1101C16.3185 49.9999 14.5863 49.3586 13.2266 48.192C11.867 47.0254 10.9699 45.4107 10.6976 43.64L7.56005 25.76C7.45047 25.0475 7.49627 24.3196 7.69431 23.6265C7.89236 22.9333 8.23795 22.2911 8.70741 21.744C9.17688 21.1969 9.7591 20.7578 10.4142 20.4568C11.0692 20.1557 11.7816 19.9999 12.5026 20Z"/>
-                                        <path d="M42.5 25L37.5 10"/>
-                                        <path d="M17.5 25L22.5 10"/>
-                                    </svg>
-                                </div>
-                                <h5 class="module-title mb-0 mt-2">My Product</h5>
                             </a>
                         </li>
                     </ul>
@@ -838,424 +605,15 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
-
+    
     <!-- Custom JS -->
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/env.js"></script>
+    <script src="{% static "chat/assets/js/common.js" %}"></script>
     <script>
         $(document).ready(function () {
             $('.btn-toggle-innersidebar').on('click', function () {
                 $('body').toggleClass('show-innersidebar');
             });
         });
-        var globChatGrpId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
-        let conversationContext = [];
-        localStorage.setItem("conversationHistory", JSON.stringify([]));
-        document.getElementById('new-chat').addEventListener('click', function () {
-            globChatGrpId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
-            document.getElementById('message-box').innerHTML = "";
-            document.getElementById('chat-prompt-input').value = "";
-            document.getElementById('chat-file-input').value = "";
-            conversationContext = [];
-        });
-        const btn = document.getElementById('record');
-        const resultInput = document.getElementById('chat-prompt-input');
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        const recognition = new SpeechRecognition();
-        recognition.interimResults = false;
-        recognition.continuous = false;
-        recognition.lang = 'en-US';
-
-        record.addEventListener('mousedown', () => {
-            recognition.start();
-        });
-
-        record.addEventListener('mouseup', () => {
-            recognition.stop();
-        });
-
-        recognition.onresult = (event) => {
-            const transcript = event.results[0][0].transcript;
-            resultInput.value = transcript;
-        };
-
-        recognition.onerror = (event) => {
-            console.error('Speech recognition error:', event.error);
-        };
-
-        function setPrompt(val) {
-            document.getElementById("chat-prompt-input").value = val;
-        }
-        function getConversationHistory() {
-            const data = localStorage.getItem("conversationHistory");
-            return data ? JSON.parse(data) : [];
-        }
-
-        function saveConversationHistory(history) {
-            localStorage.setItem("conversationHistory", JSON.stringify(history));
-        }
-
-        function addToConversationHistory(entry) {
-            const history = getConversationHistory();
-            history.push(entry);
-            saveConversationHistory(history);
-        }
-        function historyClick(el) {
-            const chatGrpId = el.dataset.chatGrpId;
-            globChatGrpId = chatGrpId;
-            let errorContentHtml = '';
-            const conversationHistory = getConversationHistory();
-            conversationHistory
-                .filter(item => String(item.chatGrpId) === String(chatGrpId))
-                .forEach(item => {
-                    const { chatGrpId, timestamp, ...contextItem } = item;
-                    conversationContext.push(contextItem);
-                });
-            $('#message-box').html("");
-            var historyModel = "";
-            if (Array.isArray(conversationHistory) && conversationHistory.length > 0) {
-                conversationHistory.forEach(ContextItem => {
-                    if (ContextItem.role == "user" && ContextItem.chatGrpId == chatGrpId) {
-                        let userContentHtml = '';
-                        ContextItem.parts.forEach(item => {
-                            item.forEach(part => {
-                                if ('text' in part) {
-                                    userContentHtml += part.text;
-                                    historyModel += part.text;
-                                } else if ('inlineData' in part && part.inlineData.mimeType.startsWith("image/")) {
-                                    const base64Image = part.inlineData.data;
-                                    userContentHtml += `<img src="data:${part.inlineData.mimeType};base64,${base64Image}" 
-                                                alt="Generated Image" class="send-image" />`;
-                                } else {
-                                    userContentHtml += `<p>[Unknown content]</p>`;
-                                }
-                            });
-                        });
-                        if (userContentHtml != "") {
-                            $('#message-box').append(`<li class="mb-4 d-flex flex-row-reverse align-items-end">
-                                <div class="max-width-70 text-end">
-                                    <div class="user-info mb-1">
-                                        <span><span class="fs-12 opacity-50">${ContextItem.timestamp}</span> <strong class="text-primary">You</strong> </span>
-                                    </div>
-                                    <div class="message py-3 px-4 rounded-4 mb-1 bg-secondary-subtle">
-                                        `+ userContentHtml + `
-                                    </div>
-                                </div>
-                            </li>`);
-                        }
-                    } else if (ContextItem.role == "model" && ContextItem.chatGrpId == chatGrpId) {
-                        let modelContentHtml = '';
-                        ContextItem.parts.forEach(part => {
-                            if ('text' in part) {
-                                modelContentHtml += marked.parse(part.text);
-                            } else if ('inlineData' in part && part.inlineData.mimeType.startsWith("image/")) {
-                                const base64Image = part.inlineData.data;
-                                modelContentHtml += `<img src="data:${part.inlineData.mimeType};base64,${base64Image}" 
-                                            alt="Generated Image" style="max-width: 100%; margin-top: 10px;" />`;
-                            } else {
-                                modelContentHtml += `<p>[Unknown content]</p>`;
-                            }
-                        });
-                        if (modelContentHtml != "") {
-                            const receveMessage = `<li class="mb-4 d-flex flex-row align-items-end msg-left">
-                            <div class="d-flex gap-2 flex-column flex-md-row">
-                                <div class="avatar lg rounded-circle mt-0 mt-md-4 bg-primary text-white p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
-                                        <path d="M12 2v2" />
-                                        <path d="M9 12v9" />
-                                        <path d="M15 12v9" />
-                                        <path d="M5 16l4 -2" />
-                                        <path d="M15 14l4 2" />
-                                        <path d="M9 18h6" />
-                                        <path d="M10 8v.01" />
-                                        <path d="M14 8v.01" />
-                                    </svg>
-                                </div>
-                                <div class="ai-reply flex-grow-1 text-wrap">
-                                    <span class="opacity-50 small">AI Assistant</span>
-                                    <div class="message py-3 px-4 rounded-4 position-relative me-lg-5 lh-base">
-                                        `+ modelContentHtml + `
-                                        <span class="opacity-0 position-absolute small end-0 time">${ContextItem.timestamp}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>`;
-                            $(`#message-box`).append(receveMessage);
-                        }
-                    } else {
-                        errorContentHtml = '<p>No valid response received.</p>';
-                    }
-                });
-            } else {
-                errorContentHtml = '<p>No valid response received.</p>';
-            }
-        }
-
-        $('.chat-app .chatlist-toggle').on('click', function () {
-            $('.chat-app .order-1').toggleClass('open');
-        });
-
-        $('#ai-chat-form').on('submit', async function (e) {
-            e.preventDefault();
-            let inputText = document.getElementById('chat-prompt-input').value;
-            const file = document.getElementById("chat-file-input").files[0];
-            var base64Image = null;
-            const parts = [];
-            var imageUpload = true;
-            if (file && !file.type.startsWith('image/')) {
-                alert('Please select a valid image file (e.g., JPG, PNG, GIF)');
-                this.value = '';
-                imageUpload = false;
-                return;
-            }
-            if (imageUpload && file != "" && file != undefined && file instanceof Blob) {
-                base64Image = await fileToBase64(file);
-                if (base64Image) {
-                    const fullSrc = `data:image/png;base64,${base64Image}`;
-                    var sendMessage = `<li class="mb-4 d-flex flex-row-reverse align-items-end">
-                        <div class="max-width-70 text-end">
-                            <div class="user-info mb-1">
-                                <span><span class="fs-12 opacity-50">10:12 AM, Today</span> <strong class="text-primary">You</strong> </span>
-                            </div>
-                            <div class="message py-3 px-4 rounded-4 mb-1 bg-secondary-subtle">
-                                <img src="${fullSrc}" class="send-image">
-                            </div>
-                        </div>
-                    </li>`;
-                    $('#message-box').append(sendMessage);
-                    document.getElementById("chat-file-input").value = "";
-                    parts.push({
-                        inlineData: {
-                            mimeType: file.type,
-                            data: base64Image
-                        }
-                    });
-                }
-            }
-
-            if (inputText != "") {
-                parts.push({ text: inputText });
-                var sendMessage = `<li class="mb-4 d-flex flex-row-reverse align-items-end">
-                    <div class="max-width-70 text-end">
-                        <div class="user-info mb-1">
-                            <span><span class="fs-12 opacity-50">${getCurrentTimeWithAmPm()}</span> <strong class="text-primary">You</strong> </span>
-                        </div>
-                        <div class="message py-3 px-4 rounded-4 mb-1 bg-secondary-subtle">
-                            `+ inputText + `
-                        </div>
-                    </div>
-                </li>`;
-                $('#message-box').append(sendMessage);
-                $('#chat-prompt-input').val("");
-            }
-
-            if (inputText != "" || (imageUpload && file != "" && file != undefined)) {
-                $('#remove-image').trigger('click');
-                $('#send-button').prop('disabled', true);
-                var typingId = 'typing-' + Date.now();
-                var typingPlaceholder = `
-                <li id="${typingId}" class="mb-3 d-flex flex-row align-items-end">
-                    <div class="max-width-70">
-                        <div class="card p-2">
-                            <span class="typing-dots"></span>
-                        </div>
-                    </div>
-                </li>`;
-                $('#message-box').append(typingPlaceholder);
-                const apiKey = window.env.GEMINI_API_KEY;
-                var url = "";
-                var generationConfig = { "responseModalities": ["TEXT"] };
-                url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-                conversationContext.push({
-                    role: "user",
-                    parts: [parts]
-                });
-                addToConversationHistory({
-                    role: "user",
-                    parts: [parts],
-                    chatGrpId: globChatGrpId,
-                    timestamp: getCurrentTimeWithAmPm()
-                });
-                $.ajax({
-                    url: url,
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        contents: conversationContext,
-                        generationConfig: generationConfig
-                    }),
-                    success: function (response) {
-                        const parts = response?.candidates?.[0]?.content?.parts;
-                        let contentHtml = '';
-                        var historyModel = "";
-                        if (Array.isArray(parts) && parts.length > 0) {
-                            parts.forEach(part => {
-                                if ('text' in part) {
-                                    contentHtml += marked.parse(part.text);
-                                    historyModel += part.text;
-                                } else if ('inlineData' in part && part.inlineData.mimeType.startsWith("image/")) {
-                                    const base64Image = part.inlineData.data;
-                                    contentHtml += `<img src="data:${part.inlineData.mimeType};base64,${base64Image}" 
-                                                alt="Generated Image" style="max-width: 100%; margin-top: 10px;" />`;
-                                } else {
-                                    contentHtml += `<p>[Unknown content]</p>`;
-                                }
-                            });
-                            conversationContext.push({
-                                role: "model",
-                                parts: parts
-                            });
-                            addToConversationHistory({
-                                role: "model",
-                                parts: parts,
-                                chatGrpId: globChatGrpId,
-                                timestamp: getCurrentTimeWithAmPm()
-                            });
-                        } else {
-                            contentHtml = '<p>No valid response received.</p>';
-                        }
-                        var match = false;
-                        $('.history-item').each(function () {
-                            const chatGrpId = $(this).data('chat-grp-id');
-                            if (chatGrpId === globChatGrpId) {
-                                match = true;
-                                return false;
-                            } else {
-                                match = false;
-                            }
-                        });
-                        if (!match) {
-                            let cleanText = historyModel.replace(/<[^>]*>/g, ''); // Remove HTML tags
-                            let first10Words = cleanText.split(/\s+/).slice(0, 10).join(' ');
-                            $('.no-history').remove();
-                            $('#chat-history').append(`<li class="history-item" onClick=historyClick(this) data-chat-id="histpry-${typingId}" data-chat-grp-id="${globChatGrpId}">
-                            <a href="#" class="list-group-item list-group-item-action p-3 rounded-3 border-0">
-                                <h6 class="mb-0 text-truncate fs-14">`+ inputText + `</h6>
-                                <p class="fs-12 mb-1 text-truncate">${first10Words}</p>
-                                <small class="opacity-75 fs-12">${getCurrentTimeWithAmPm()}</small>
-                            </a>
-                        </li>`);
-                        }
-
-                        const receveMessage = `<div class="d-flex gap-2 flex-column flex-md-row">
-                            <div class="avatar lg rounded-circle mt-0 mt-md-4 bg-primary text-white p-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
-                                    <path d="M12 2v2" />
-                                    <path d="M9 12v9" />
-                                    <path d="M15 12v9" />
-                                    <path d="M5 16l4 -2" />
-                                    <path d="M15 14l4 2" />
-                                    <path d="M9 18h6" />
-                                    <path d="M10 8v.01" />
-                                    <path d="M14 8v.01" />
-                                </svg>
-                            </div>
-                            <div class="ai-reply flex-grow-1 text-wrap">
-                                <span class="opacity-50 small">AI Assistant</span>
-                                <div class="message py-3 px-4 rounded-4 position-relative me-lg-5 lh-base">
-                                    `+ contentHtml + `
-                                    <span class="opacity-0 position-absolute small end-0 time">${getCurrentTimeWithAmPm()}</span>
-                                </div>
-                            </div>
-                        </div>`;
-                        $(`#${typingId}`).html(receveMessage);
-                        $('#send-button').prop('disabled', false);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Error:', status, error);
-                        console.error('API Error:', xhr.responseText || status || error);
-                        $(`#${typingId}`).remove();
-                        let message = 'Something went wrong.';
-                        console.log(xhr.responseJSON.error.message);
-                        if (xhr.responseJSON.error.message != undefined && xhr.responseJSON.error.message != "") {
-                            message = xhr.responseJSON.error.message;
-                        } else {
-                            if (xhr.status === 400) {
-                                message = 'Bad Request – Check input data.';
-                            } else if (xhr.status === 403) {
-                                message = 'Forbidden – Invalid API Key.';
-                            } else if (xhr.status === 429) {
-                                message = 'Rate limit exceeded. Try again later.';
-                            } else if (xhr.status >= 500) {
-                                message = 'Server error. Please try again later.';
-                            } else {
-                                message = 'Something went wrong!';
-                            }
-                        }
-                        showErrorMessage(message);
-                        $('#send-button').prop('disabled', false);
-                    }
-                });
-            }
-        });
-        function getCurrentTimeWithAmPm() {
-            const now = new Date();
-
-            let hours = now.getHours();
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-
-            hours = hours % 12;
-            hours = hours ? hours : 12; // convert 0 to 12
-
-            return `${hours}:${minutes}:${seconds} ${ampm}`;
-        }
-        function showErrorMessage(msg) {
-            $('#error-box').html(`<p class="text-danger">${msg}</p>`);
-            // setTimeout(() => {
-            //     $('#error-box').empty();
-            // }, 5000);
-        }
-        function fileToBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-
-                reader.onload = () => {
-                    const base64 = reader.result.split(',')[1];
-                    resolve(base64);
-                };
-
-                reader.onerror = (error) => reject(error);
-
-                if (file instanceof Blob) {
-                    reader.readAsDataURL(file);
-                } else {
-                    reject(new TypeError("File must be a Blob."));
-                }
-            });
-        }
-
-        document.getElementById("remove-image").addEventListener("click", function () {
-            const preview = document.getElementById("image-preview");
-            preview.src = "";
-
-            const container = document.getElementById("image-preview-container");
-            container.classList.add("d-none");
-
-            const input = document.getElementById("chat-file-input");
-            input.value = "";
-        });
-        document.getElementById("chat-file-input").addEventListener("change", function () {
-            const file = this.files[0];
-
-            if (file && file.type.startsWith("image/")) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const preview = document.getElementById("image-preview");
-                    preview.src = e.target.result;
-
-                    const container = document.getElementById("image-preview-container");
-                    container.classList.remove("d-none");
-                };
-                reader.readAsDataURL(file);
-            }
-        });
     </script>
 </body>
-
 </html>

@@ -1,0 +1,669 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="content-area py-4">
+        <div class="container-fluid px-2 px-md-4">
+
+            <div class="border-bg mb-5 position-relative px-3 py-4 rounded-4">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Video Tools">
+                            <label for="floatingInput">Search tools...</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <select class="form-select" aria-label="tools Categories">
+                                <option value="video">Video Tools</option>
+                                <option value="content">Content Creation</option>
+                                <option value="audio">Audio Tools</option>
+                                <option value="marketing">Marketing &amp; SEO</option>
+                                <option value="image">Design &amp; Images</option>
+                                <option value="education">Education</option>
+                                <option value="system">System &amp; SaaS</option>
+                                <option value="developer">Developer Tools</option>
+                                <option value="lifestyle">Lifestyle</option>
+                                <option value="business">Business &amp; Productivity</option>
+                            </select>
+                            <label for="floatingSelect">Select Categories</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <select class="form-select">
+                                <option value="active">Active</option>
+                                <option value="beta">Beta</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                            <label for="floatingSelect">Status</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-light w-100 py-3">Clear</button>
+                    </div>
+                </div>
+                <div class="d-flex top-100 position-absolute" style="height: 44px; left: 50px;">
+                    <div class="vr border-bg opacity-100"></div>
+                    <div class="vr border-bg opacity-100 ms-1"></div>
+                </div>
+            </div>
+            <ul class="row g-1 li_animate list-unstyled border-top rounded-4">
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8a5 5 0 0 0 5 -5v-3a3 3 0 0 0 -3 -3h-1v-2a5 5 0 0 0 -5 -5h-4a5 5 0 0 0 -5 5v8a5 5 0 0 0 5 5z" /><path d="M7 7m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h3a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-3a1.5 1.5 0 0 1 -1.5 -1.5z" /><path d="M7 14m0 1.5a1.5 1.5 0 0 1 1.5 -1.5h7a1.5 1.5 0 0 1 1.5 1.5v0a1.5 1.5 0 0 1 -1.5 1.5h-7a1.5 1.5 0 0 1 -1.5 -1.5z" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Blog Article Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Content</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Bug Fix & Code Optimization Tool</h6>
+                                    <span class="badge text-bg-warning">Beta</span>
+                                    <span class="badge text-bg-secondary">Developer</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M5 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" /><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" /><path d="M18 15v6h2" /><path d="M13 15a2 2 0 0 1 2 2v2a2 2 0 1 1 -4 0v-2a2 2 0 0 1 2 -2z" /><path d="M14 20l1.5 1.5" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">SQL Query Generator</h6>
+                                    <span class="badge text-bg-warning">Beta</span>
+                                    <span class="badge text-bg-danger">maintenance</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16l2 -6l6 -2l-2 6l-6 2" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 2" /><path d="M12 19l0 2" /><path d="M3 12l2 0" /><path d="M19 12l2 0" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Travel Itinerary Planner</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Lifestyle</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-15c0 -1 1 -2 2 -2h5c1 0 2 1 2 2v15" /><path d="M16 8h2c1 0 2 1 2 2v11" /><path d="M3 21h18" /><path d="M10 12v0" /><path d="M10 16v0" /><path d="M10 8v0" /><path d="M7 12v0" /><path d="M7 16v0" /><path d="M7 8v0" /><path d="M17 12v0" /><path d="M17 16v0" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Real Estate Listing Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Business</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4" /><path d="M14.5 5.5l4 4" /><path d="M12 8l-5 -5l-4 4l5 5" /><path d="M7 8l-1.5 1.5" /><path d="M16 12l5 5l-4 4l-5 -5" /><path d="M16 17l-1.5 1.5" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Tool Usage Tracker</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Content</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" /><path d="M8 10v-2h2m6 6v2h-2m-4 0h-2v-2m8 -4v-2h-2" /><path d="M3 10h2" /><path d="M3 14h2" /><path d="M10 3v2" /><path d="M14 3v2" /><path d="M21 10h-2" /><path d="M21 14h-2" /><path d="M14 21v-2" /><path d="M10 21v-2" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Embed Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Content</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19a2 2 0 0 1 -2 -2v-4l-1 -1l1 -1v-4a2 2 0 0 1 2 -2" /><path d="M12 11.875l3 -1.687" /><path d="M12 11.875v3.375" /><path d="M12 11.875l-3 -1.687" /><path d="M12 11.875l3 1.688" /><path d="M12 8.5v3.375" /><path d="M12 11.875l-3 1.688" /><path d="M18 19a2 2 0 0 0 2 -2v-4l1 -1l-1 -1v-4a2 2 0 0 0 -2 -2" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Code Generator & Explainer</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Content</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10l7.383 7.418c.823 .82 .823 2.148 0 2.967a2.11 2.11 0 0 1 -2.976 0l-7.407 -7.385" /><path d="M6 9l4 4" /><path d="M13 10l-4 -4" /><path d="M3 21h7" /><path d="M6.793 15.793l-3.586 -3.586a1 1 0 0 1 0 -1.414l2.293 -2.293l.5 .5l3 -3l-.5 -.5l2.293 -2.293a1 1 0 0 1 1.414 0l3.586 3.586a1 1 0 0 1 0 1.414l-2.293 2.293l-.5 -.5l-3 3l.5 .5l-2.293 2.293a1 1 0 0 1 -1.414 0z" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Contract & Legal Document Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Content</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" /><path d="M13 8l2 0" /><path d="M13 12l2 0" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Landing Page Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Marketing</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10.174c1.766 -2.784 3.315 -4.174 4.648 -4.174c2 0 3.263 2.213 4 5.217c.704 2.869 .5 6.783 -2 6.783c-1.114 0 -2.648 -1.565 -4.148 -3.652a27.627 27.627 0 0 1 -2.5 -4.174z" /><path d="M12 10.174c-1.766 -2.784 -3.315 -4.174 -4.648 -4.174c-2 0 -3.263 2.213 -4 5.217c-.704 2.869 -.5 6.783 2 6.783c1.114 0 2.648 -1.565 4.148 -3.652c1 -1.391 1.833 -2.783 2.5 -4.174z" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Meta Title & Description Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Marketing</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-12">
+                    <div class="border-bottom p-3 rounded-4 d-flex align-items-center flex-column flex-md-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a1 1 0 0 1 1 1v.5c0 1.5 -2.517 5.573 -4 6.5v1a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-1c-1.687 -1.054 -4 -5 -4 -6.5v-.5a1 1 0 0 1 1 -1z" /><path d="M19 7l-14 1" /><path d="M19 2l-14 3" /></svg>
+                        <div class="ms-md-2 ms-lg-3 text-md-start text-center w-100 mt-4 mt-md-0">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 mb-3 mb-md-0">
+                                    <h6 class="mb-1">Recipe Generator</h6>
+                                    <span class="badge text-bg-primary">Active</span>
+                                    <span class="badge text-bg-secondary">Lifestyle</span>
+                                </div>
+                                <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-5 text-center">
+                                    <ul class="list-unstyled d-flex mb-0 text-center text-md-start gap-4">
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">15.4K</h6>
+                                            <span class="small text-muted">Uses</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">4.8</h6>
+                                            <span class="small text-muted">Rating</span>
+                                        </li>
+                                        <li class="vr"></li>
+                                        <li class="flex-fill">
+                                            <h6 class="mb-0">⭐⭐⭐⭐⭐</h6>
+                                            <span class="small text-muted">Stars</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 text-center text-md-end mt-3 mt-md-0">
+                                    <a href="#" class="btn bg-primary text-light me-3">Use Tool</a>
+                                    <button type="button" class="btn text-primary p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                            <path d="M16 5l3 3"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn text-danger p-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7l16 0"></path>
+                                            <path d="M10 11l0 6"></path>
+                                            <path d="M14 11l0 6"></path>
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+{% endblock content %}
